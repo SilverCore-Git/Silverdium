@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./src/css/defaultload.css">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+        <script type="module" src="./src/js/defaultload.js"></script>
+        <script src="./src/js/getmcapi.js"></script>
+        <script src="./src/js/btn-link.js"></script>
+        <link rel="icon" href="./src/ico/logo.ico" type="image/x-icon">
+        <title>Accueil | Silverdium | serveur minecraft modée francais</title>
+    </head>
+    <style>
+        .select-btn-index {
+            outline: none;
+            border: 2px solid #ff9900; 
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .select-btn-index:hover {
+            transform: translateX(10px);
+        }
+    </style>
+    <body>
+        <header>
+                <div id="navbar">Erreur lors du chargement de la navbar (oh non !! 😭)</div>
+        </header>
+        <div id="navbar3"></div>
+            <iframe 
+            src="https://discord.com/widget?id=1285091053011079189&theme=dark"
+            class="dsidebar"
+            allowtransparency="true" 
+            frameborder="0"
+            id="1285091053011079189"
+            footer="Silverdium"
+            title="Silverdium" 
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+            </iframe>
+            <br>
+        <div class="top">
+            <h1  id="confetti-btn" class="btn white-title underline"> Bienvenue sur Silverdium </h1><br>
+            <div id="srvmcstatus"></div>
+        </div>
+        <main id="coffeti">
+            <section class="content">
+                <div class="card">
+                    <div onclick="btn('rickroll')">
+                        <img class="block-img" src="./src/image/logo.png" alt="Placeholder Image">
+                    </div>
+                    <div class="text">
+                        <h1 class="purpletitle">Accueil</h1>
+                        <p>
+                            <h3>
+                                Bonjour, voici le site officiel de ©Silverdium, serveur minecraft modée francais unique en son genre.
+                                <br>Sur ce site vous pourrez trouver plusieur info utils sur le <a href="servmc">serveur minecraft</a>,
+                                <br>et télécharger le launcher de Silverdium pour rejoindre ce benger.
+                                <br>Voir des infos sur le <a href="servmc">Serveur MC</a>. Et accéder au  <a href="https://discord.gg/tW2EQ4EsD6" target="_blank">Serveur Discord</a>
+                            </h3>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <br><br>
+            <section class="content">
+                <div class="card°2">
+                    <div onclick="btn('tipeee')">
+                        <img class="block-img°2" src="./src/image/logo4.png" alt="Placeholder Image">
+                    </div>
+                    <div class="text°2">
+                        <h1 class="purpletitle">SilverCore</h1>
+                        <p>
+                            <h3>
+                                Silverdium est un serveur minecraft modée francais <br>créer par <a href="#SilverCore">SilverCore</a>.
+                                <br>Plus d'info dans la catégori dédier au serveur minecraft.
+                            </h3>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <br><br>
+            <section class="content">
+                <div class="card">
+                    <div onclick="btn('discord')" style="cursor: pointer;">
+                        <img class="block-img" src="https://static.vecteezy.com/ti/vecteur-libre/p1/6892625-discord-logo-icon-editorial-vector-gratuit-vectoriel.jpg" alt="Placeholder Image">
+                    </div>
+                    <div class="text">
+                        <h3 class="purpletitle">Discord</h3>
+                        <p>
+                            <h4>
+                                Ce Serveur Discord permet d'échanger avec la communauté, 
+                                <br>d'avoir tout types d'annonces en avant première,
+                                <br>de contribuer au avancer de Silverdium avec de multiple sondage pour que ce soit <strong>nôtre</strong> serveur. 
+                                <br>Il y tout une catégori dédier au support, au partage, au notif'. 
+                                <br>vous pouvez échanger avec les autre joueurs, jouer avec heux et surtout s'amuser.
+                                <br><strong>Pour rejoindre le serveur discord clickez sur le logo ci-contre !</strong>
+                            </h4>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <br>
+        <footer>
+            <p>&copy; 2024 Site Silverdium. Tous droits réservés.</p>
+            <div id="navbar2">Erreur lors du chargement de la navbar (oh non !! 😭)</div>
+        </footer>
+    </body>
+    <script>
+        const btn = document.getElementById('confetti-btn');
+        const confet = document.getElementById('coffeti');
+        let Confetti = false;
+
+        btn.addEventListener('click', () => {
+            Confetti = true;
+            console.log(`Confetti is now ${Confetti}`);
+            confetti({
+                particleCount: 100,
+                spread: 80,
+                origin: { x: 0.5, y: 0.8 },
+            });
+            confetti({
+                particleCount: 110,
+                spread: 80,
+                origin: { x: 0.4, y: 0.8 },
+            });
+            confetti({
+                particleCount: 110,
+                spread: 80,
+                origin: { x: 0.6, y: 0.8 },
+            });
+
+        });
+
+        confet.addEventListener('click', () => {
+            if (Confetti) {
+                confetti({
+                    particleCount: 600,
+                    spread: 70,
+                    origin: { x: 0.5, y: 0.6 },
+                });
+                confetti({
+                    particleCount: 600,
+                    spread: 70,
+                    origin: { x: 0.35, y: 0.7 },
+                });
+                confetti({
+                    particleCount: 600,
+                    spread: 70,
+                    origin: { x: 0.65, y: 0.7 },
+                });
+                confetti({
+                    particleCount: 600,
+                    spread: 70,
+                    origin: { x: 0.25, y: 0.8 },
+                });
+                confetti({
+                    particleCount: 600,
+                    spread: 70,
+                    origin: { x: 0.75, y: 0.8 },
+                });
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,57 @@
+{
+    "name": "silver-mc-java-core",
+    "version": "3.12.2",
+    "types": "./build/Index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./build/Index.js",
+            "require": "./build/Index.js"
+        }
+    },
+    "description": "A library starting minecraft game NW.js and Electron.js",
+    "scripts": {
+        "dev": "rimraf ./build && tsc -w",
+        "build": "rimraf ./build && tsc"
+    },
+    "files": [
+        "assets/**",
+        "build/**",
+        "LICENSE",
+        "README.md"
+    ],
+    "keywords": [
+        "Minecraft",
+        "Launcher",
+        "Node-Minecraft",
+        "Game",
+        "Minecraft-Launcher",
+        "Forge",
+        "Minecraft-Forge"
+    ],
+    "author": "Luuxis",
+    "license": "CCANC",
+    "dependencies": {
+        "7zip-bin": "^5.2.0",
+        "adm-zip": "^0.5.9",
+        "node-7z": "^3.0.0",
+        "node-fetch": "^2.6.9",
+        "prompt": "^1.2.1",
+        "tslib": "^2.4.1"
+    },
+    "devDependencies": {
+        "@types/adm-zip": "^0.5.2",
+        "@types/node": "^18.11.13",
+        "@types/node-7z": "^2.1.8",
+        "@types/node-fetch": "^2.6.2",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.9.5"
+    },
+    "bugs": {
+        "url": "https://github.com/philippeletug//silver-mc-java-core/issues"
+    },
+    "homepage": "https://github.com/philippeletug//silver-mc-java-core#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/philippeletug//silver-mc-java-core.git"
+    }
+}

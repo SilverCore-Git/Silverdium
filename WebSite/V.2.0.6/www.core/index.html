@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="favicon" rel="icon" href="./src/img/core/logo.png" type="image/png">
+    <script src="./src/js/btn-link.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <title>SilverCore | Un univers parallèle | By jemy5 & MisterPapaye</title>
+</head>
+<body>
+    <header>
+        <h1><img src="./src/img/core/logo.png">SilverCore</h1>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Un univers parallèle</h2>
+        <p>Découvrez l'univers de SilverCore.
+            <br>Un ensemble de services pour un moindre problème !
+            <br><i>By jemy5 and MisterPapaye</i>
+        </p>        
+        <button>En savoir plus</button>
+        <img src="./src/img/core/logo.png">
+    </section>
+
+    <section class="services" id="services">
+        <h3>Nos Services</h3>
+        <div class="service-list">
+            <div onclick="silverdium()" class="service-item pointer">
+                <h4>Silverdium</h4>
+                <p>Un serveur Minecraft modé français.
+                    <br>Qui possède ses propres univers grâce aux modpacks d'environ 60 mods.
+                    <br><i>Tous ses services sont open-source</i>
+                </p>
+            </div>
+            <div onclick="window.location.href = '#silversounddetector'" class="service-item pointer">
+                <h4>Silver SoundDetector</h4>
+                <p>Une app compatible macOS, Windows et Linux
+                    <br>de détection sonore avec alerte si le son est trop élevé.
+                    <br><i>App JavaScript open-source</i></p>
+            </div>            
+        </div>
+    </section>
+
+    <section class="silversounddetector" id="silversounddetector">
+        <h3>Silver Sound Detector</h3>
+        <div class="ssd-info">
+            <h4>
+                <p>
+                    Silver Sound Detector est une app développée par Mister Papaye,
+                    <br>qui récupère le son du micro en décibels pour afficher
+                    <br>des alertes lorsque certains paliers sont atteints.
+                </p>
+                <p>
+                    Silver Sound Detector, codée en JavaScript, HTML et CSS,
+                    <br>est basée sur Electron et Node.js.
+                    <br>Cette app, comme la plupart des apps SilverCore,
+                    <br>est open source sur son GitHub.
+                </p>                
+            </h4>
+        </div>
+        <button>github</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SilverCore. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

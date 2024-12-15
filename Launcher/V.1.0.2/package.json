@@ -1,0 +1,45 @@
+{
+    "name": "Silverdium-Launcher",
+    "preductname": "Silverdium Launcher",
+    "version": "1.0.2",
+    "description": "Launcher Mincraft pour le serveur Silverdium",
+    "main": "src/app.js",
+    "author": {
+        "name": "Silverdium",
+        "email": "#",
+        "url": "http://82.64.217.99/silverdium"
+    },
+    "url": "http://82.64.217.99:8880/api/silverdium/launcher-api",
+    "scripts": {
+        "start": "cross-env-shell NODE_ENV=dev electron .",
+        "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
+        "build": "node build.js --obf=true --build=platform",
+        "icon": "node build.js --icon=http://82.64.217.99:8880/api/silverdium/launcher-api/icon.png"
+    },
+    "license": "CCANC",
+    "nodemonConfig": {
+        "ext": "js,html,css",
+        "ignore": "**/test"
+    },
+    "dependencies": {
+        "electron-updater": "^6.1.8",
+        "minecraft-java-core": "^3.10.4",
+        "node": "^18.20.5",
+        "node-bdd": "^2.0.4",
+        "node-fetch": "^2.7.0",
+        "xml-js": "^1.6.11"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "electron": "^30.0.9",
+        "electron-builder": "^24.13.3",
+        "javascript-obfuscator": "^4.1.0",
+        "jimp": "^0.22.12",
+        "nodemon": "^3.1.2",
+        "png2icons": "^2.0.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Philippeletug/Silverdium-Launcher.git"
+    }
+}

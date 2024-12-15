@@ -1,0 +1,89 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+}
+
+
+/* Header */
+header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    transition: transform 0.3s
+}
+
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+}
+
+/* xp list */
+.flexaligne {
+    display: flex;
+    justify-content: flex-start; /* Aligne à gauche */
+    align-items: center;
+    gap: 20px; /* Espace entre les éléments */
+    width: 100%; /* Pour s'étendre sur toute la largeur */
+}
+
+.xplist, .xpbtn {
+    z-index: 10;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 7px 0 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(150deg, #793fa0, #5b0e8f);
+    text-transform: uppercase;
+    border-radius: 15px;
+    width: auto;
+   height: auto;
+    cursor: pointer;
+    display: inline-block; /* Permet à l'élément d'être placé horizontalement */
+}
+
+.xpbtn {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    box-shadow: 7px 0 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(150deg, #793fa0, #5b0e8f);
+    text-transform: none;
+    padding: 10px;
+    border-radius: 15px;
+    width: auto;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.xpbtn:hover {
+    background: #ff9900;
+}
