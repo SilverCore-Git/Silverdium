@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="./src/js/defaultload.js"></script>
+        <link rel="stylesheet" href="./src/css/defaultload.css">
+        <script src="./src/js/btn-link.js"></script>
+        <link rel="icon" href="./src/ico/logo.ico" type="image/x-icon">
+        <title>Launcher | Silverdium | serveur minecraft modée francais</title>
+    </head>
+    <style>
+        .select-btn-launcher {
+            outline: none;
+            border: 2px solid #ff9900; 
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .select-btn-launcher:hover {
+            transform: translateX(10px);
+        }
+    </style>
+    <body>
+        <header>
+            <div id="navbar">Erreur lors du chargement de la navbar (oh non !! 😭)</div>
+        </header>
+        <div id="navbar3"></div>
+        <main>
+            <section class="content">
+                <div class="card">
+                    <div onclick="btn('tipeee')">
+                        <img class="block-img" src="./src/image/logo2.png" alt="Image">
+                    </div>
+                    <div class="text">
+                        <h1 class="purpletitle">Silverdium Launcher</h1>
+                        <p>
+                            <h3>
+                                Silverdium possède son propre launcher basé sur le <a href="https://github.com/luuxis/Selvania-Launcher">Selvania Launcher</a>,
+                                <br>Il s'occupe automatiquement de toute MAJ que ce soit du launcher ou du du modpack.
+                                <br>Pour jouer a Silverdium son utilisation est obligatoir.
+                                <br>Vous pouvez le télécharger avec les bouton ci-dessous.
+                            </h3>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <br><br><br>
+            <section class="content">
+                <div class="platform-btn">
+                    <div class="btn" onclick="downloadlauncher('Win')">
+                        <img class="launcher-btn"  src="https://img.icons8.com/?size=512&id=108792&format=png">
+                    </div>
+                    <div class="btn" onclick="downloadlauncher('Mac')">
+                        <img class="launcher-btn"  src="https://cdn.icon-icons.com/icons2/2395/PNG/512/apple_mac_logo_icon_145682.png">
+                    </div>
+                    <div class="btn" onclick="downloadlauncher('Linux')">
+                        <img class="launcher-btn" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/640px-Tux.svg.png">
+                    </div>
+                </div>
+            </section>
+            <br><br><br><br><br>
+            <section>
+                <div class="content">
+                    <div class="project-box">
+                        <div class="image-container">
+                            <img src="./src/image/box/launcher/img5.png" alt="Project Image 5">
+                        </div>
+                        <div class="image-container shadow">
+                            <div class="text-proj-box">
+                                <br>
+                                <h1 class="purpletitle underline"><strong> SILVERDIUM LAUNCHER </strong></h1>
+                                <h3>
+                                    Le launcher coder en javascript, html et css
+                                    <br>utilisant electron baser sur le <a href="https://github.com/luuxis/Selvania-Launcher">Selvania Launcher</a>
+                                    <br>a été codé principalement par Mister papaye
+                                    <br>avec l'aide de Gecko72 et Jemy5
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="content">
+                    <div class="project-box">
+                        <div class="image-container">
+                            <img src="./src/image/box/launcher/img3.png" alt="Project Image 3">
+                        </div>
+                        <div class="image-container">
+                            <img src="./src/image/box/launcher/img4.png" alt="Project Image 4">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="image-modal" class="modal">
+                <span id="close-modal" class="close">&times;</span>
+                <img id="modal-img" class="modal-content" alt="Agrandissement">
+            </div>
+        </main>
+        <br>
+        <footer>
+            <p>&copy; 2024 - 2025 Silverdium. Protéger par Droits d'auteurs fr.</p>
+            <div id="navbar2">Erreur lors du chargement de la navbar (oh non !! 😭)</div>
+        </footer>
+    </body>
+    <script>
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img");
+        const closeModal = document.getElementById("close-modal");
+        const images = document.querySelectorAll(".image-container img");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "block";
+                modalImg.src = img.src;
+            });
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    </script>
+</html>
