@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "ranks": {
         "administration": {
@@ -39,3 +40,46 @@
         ]
     }
 }
+=======
+{
+    "ranks": {
+        "administration": {
+            "fondateurs": [
+                "Mister Papaye",
+                "Jemy5"
+            ],
+            "admin": [
+                "none"
+            ]
+        },
+        "responsables": [
+            "Developeurs : Gecko72",
+            "Builders : ChatonBuilder"
+        ],
+        "staff": {
+            "supmodo": [
+                "Gecko72",
+                ""
+            ],
+            "modo": [
+                "Ca pourait être toi !",
+                ""
+            ],
+            "helpeur": [
+                "Pockettwist9",
+                ""
+            ]
+        }
+    },
+    "developersprog": {
+        "Silverdiumfr": [
+            "Mister Papaye",
+            "Gecko72"
+        ],
+        "SilverdiumLauncher": [
+            "Mister Papaye",
+            ""
+        ]
+    }
+}
+>>>>>>> 37ac197bcc5a572ce8943ab0a14be182f8945ba2
