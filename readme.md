@@ -17,10 +17,13 @@ Tous les projets regroupés ici sont sous droit d'auteur avec interdiction d'uti
 
 2. **[Silverdium WebSite](https://silverdium.fr)**  
    Le site web de silverdium open source [Silverdium.fr](https://silverdium.fr).
+:: test
+test
+::
 
 3. **[Silver mc java core](https://www.npmjs.com/package/silver-mc-java-core)**  
-   Ceci est un node package pour le launcher de Silverdium baser sur [minecraft-java-core](https://github.com/luuxis/minecraft-java-core/).
-   Il est téléchargable sur votre app nodejs avec `npm i silver-mc-java-core`.
+   Ceci est un node package javascript et typescript pour le launcher de Silverdium baser sur [minecraft-java-core](https://github.com/luuxis/minecraft-java-core/).
+   Il est téléchargable sur votre app nodejs avec ```npm i silver-mc-java-core```.
 
 
 ---
