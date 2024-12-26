@@ -4,7 +4,7 @@
 Silverdium est un serveur minecraft, voici son github qui regroupe ses projet.
 
 <details>
-  <summary>## Table des matieres</summary>
+  ## <summary> Table des matieres</summary>
   - [À propos](#À propos)
   - [Projets inclus](#Projets inclus)
 </details>
