@@ -1,0 +1,96 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://silverdium.fr/src/js/newyeartime.js"></script>
+    <title>Nouvelle année !!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(145deg, #470d62, #982a7c);
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+        }
+
+        .countdown {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .time {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .time div {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 80px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .time div span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .time div small {
+            display: block;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>Bientôt 2025 !!!</h1>
+        <div class="time">
+            <div>
+                <span id="days">ERR</span>
+                <small>Jours</small>
+            </div>
+            <div>
+                <span id="hours">ERR</span>
+                <small>Heurs</small>
+            </div>
+            <div>
+                <span id="minutes">ERR</span>
+                <small>Minutes</small>
+            </div>
+            <div>
+                <span id="seconds">ERR</span>
+                <small>Secondes</small>
+            </div>
+        </div>
+    </div>
+</body>

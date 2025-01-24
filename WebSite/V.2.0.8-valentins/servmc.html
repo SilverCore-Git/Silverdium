@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./src/css/defaultload.css">
+        <script type="module" src="./src/js/defaultload.js"></script>
+        <script src="./src/js/btn-link.js"></script>
+        <link rel="icon" href="https://api.silverdium.fr/img/logodiumstvalentin.png" type="image/x-icon">
+        <title>Serveur Minecraft | Silverdium | serveur minecraft modée francais</title>
+    </head>
+    <style>
+        .select-btn-servmc {
+            outline: none;
+            border: 2px solid #ff9900; 
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .select-btn-servmc:hover {
+            transform: translateX(10px);
+        }
+    </style>
+    <body>
+        <header>
+            <div id="navbar">Erreur lors du chargement de la navbar (oh non !! 😭)</div>
+        </header>
+        <div id="navbar3"></div>
+
+        <!-- For stvalentin -->
+        <style>
+            .hearts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    z-index: -1;
+}
+
+.heart {
+    font-size: 10rem;
+    margin: 0 10px;
+    animation: float 10s infinite;
+}
+</style>
+<div class="hearts-container">
+    <div class="heart">🌹</div>
+    <div class="heart">💐</div>
+    <div class="heart">💐</div>
+    <div class="heart">🌹</div>
+    <div class="heart">🌷</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">🌷</div>
+    <div class="heart">🧞</div>
+</div>
+<script>
+window.onload = function() {
+let hearts = document.querySelectorAll('.heart');
+let container = document.querySelector('.hearts-container');
+
+function animateHearts() {
+hearts.forEach(heart => {
+    // Position de départ aléatoire
+    const randomStartX = Math.random() * container.offsetWidth -100;
+    const randomStartY = Math.random() * -700;
+    const randomEndX = Math.random() * container.offsetWidth + 100;
+    const randomEndY = Math.random() * 1000;
+    const animationDuration = (Math.random() * 5) + 7 + "s";
+
+    // Appliquer la position de départ
+    heart.style.position = 'absolute';
+    heart.style.left = randomStartX + 'px';
+    heart.style.top = randomStartY + 'px';
+
+    let keyframes = `
+        @keyframes moveHeart${Date.now()} {
+            0% {
+                left: ${randomStartX}px;
+                top: ${randomStartY}px;
+            }
+            50% {
+                left: ${randomStartX + (Math.random() * 274 - 100)}px;
+                top: ${randomStartY + (Math.random() * 340 - 100)}px;
+            }
+            100% {
+                left: ${randomEndX}px;
+                top: ${randomEndY}px;
+            }
+        }
+    `;
+
+    // Injecter les keyframes dans le style du document
+    let styleSheet = document.createElement('style');
+    styleSheet.type = 'text/css';
+    styleSheet.innerText = keyframes;
+    document.head.appendChild(styleSheet);
+
+    // Appliquer l'animation unique à chaque cœur
+    heart.style.animation = `moveHeart${Date.now()} ${animationDuration} linear infinite`;
+});
+}
+
+animateHearts();
+
+setInterval(animateHearts, 10000);
+};
+
+</script>
+<!-- for stvalentin -->
+        
+        <main>
+            <h1 class="white-title underline"> Serveur Minecraft </h1>
+            <br>
+            <section class="content">
+                <div class="card">
+                    <a href="./launcher.html">
+                        <img class="block-img" src="https://api.silverdium.fr/img/logodiumstvalentin.png" alt="Placeholder Image">
+                    </a>
+                    <div class="text">
+                        <br>
+                        <h1 class="purpletitle underline"><strong> POUR REJOINDRE L'AVENTURE </strong></h1>
+                        <p style="color: white;">
+                            <h2>
+                                1) Il te suffi d'avoir un pc avec un minimum de 8Go de RAM.
+                                <br>2) 10Go minimum pour avoir un jeux fluide (poid du launcher + instance = 2Go).
+                                <br>3) Télécharge le launcher en cliquant sur l'image à gauche.
+                                <br>4) Et découvre l'univer unique de Silverdium !
+                            </h2>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <br><br><br>
+            <section class="content">
+                <div class="card°2">
+                    <img class="block-img°2" src="https://seeklogo.com/images/M/minecraft-youtube-logo-448E10AC2B-seeklogo.com.png" alt="Placeholder Image">
+                    <div class="text°2">
+                        <h2 class="purpletitle">Silverdium MC</h2>
+                        <h4>
+                            Ce Serveur contient 58mods et quelques plugins
+                            <br>pour une experiance unique et optimal en 1.18.2 pour la V1 et 1.16.5 pour la beta actuel.
+                            <br>Nous avons notre propre launcher base sur le <a href="https://github.com/luuxis/Selvania-Launcher">selvania Launcher</a>
+                            <br>Silverdium V1 est actuelement en développement mais une beta est accesible au public.
+                            <br>Et nous avons un grand nombre de mods de génération pour des paysages à couper le souffle.
+                        </h4>
+                    </div>
+                </div>
+            </section>
+            <br><br>
+            <h1 class="white-title underline"> Silverdium V1 </h1>
+            <br>
+            <section>
+                <div class="content">
+                    <div class="project-box">
+                        <div class="image-container">
+                            <img src="https://api.Silverdium.fr/img/silverdiumV1/image6.png" alt="Chargement...">
+                        </div>
+                        <div class="image-container">
+                            <img src="https://api.Silverdium.fr/img/silverdiumV1/image5.png" alt="Chargement...">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br><br>
+            <section>
+                <div class="content">
+                    <div class="project-box">
+                        <div class="image-container">
+                            <img src="https://api.Silverdium.fr/img/silverdiumV1/image2.png" alt="Chargement...">
+                        </div>
+                        <div class="image-container">
+                            <img src="https://api.Silverdium.fr/img/silverdiumV1/image3.png" alt="Chargement...">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br><br>
+            <section>
+                <div class="content">
+                    <div class="project-box">
+                        <div class="image-container">
+                            <img src="https://api.Silverdium.fr/img/silverdiumV1/image4.png" alt="Chargement...">
+                        </div>
+                        <div class="image-container">
+                            <img src="https://api.Silverdium.fr/img/silverdiumV1/image1.png" alt="Chargement...">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="image-modal" class="modal">
+                <span id="close-modal" class="close">&times;</span>
+                <img id="modal-img" class="modal-content" alt="Agrandissement">
+            </div>
+            <br>
+            <br>
+        </main>
+        <br>
+        <footer>
+            <p>&copy; 2024 - 2025 Silverdium. protégé par droits d'auteurs fr.</p>
+            <div id="navbar2">Erreur lors du chargement de la navbar (oh non !! 😭)</div>
+        </footer>
+    </body>
+    <script>
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img");
+        const closeModal = document.getElementById("close-modal");
+        const images = document.querySelectorAll(".image-container img");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "block";
+                modalImg.src = img.src;
+            });
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    </script>
+</html>
