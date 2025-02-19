@@ -1,1 +1,13 @@
-{}
+{
+    "19-02-2025": {
+        "ip.ip.v4.v4": {
+            "suspect": {
+                "value": true,
+                "point": 5
+            }
+            "connect": {
+                "today": 4
+            }
+        }
+    }
+}
