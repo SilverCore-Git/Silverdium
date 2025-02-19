@@ -1,0 +1,109 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+.widget {
+    user-select: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 10px; 
+    background: #2a2a40;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 250px;
+    max-height: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#members {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin-top: calc(100% + 40px);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #3a3a55;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100px;
+    aspect-ratio: 1;
+    margin-top: 5px;
+    position: relative;
+    left: 40px;
+}
+
+.member img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.member span {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+}
+
+.status-online {
+    color: #43b581;
+}
+
+.status-idle {
+    color: #43b581;
+}
+
+.fonda_color {
+    color: #ccae19 !important;
+}
+
+.admin_color {
+    color: rgb(214, 26, 120) !important;
+}
+
+.respon_color {
+    color: rgb(108, 27, 201) !important;
+}
+
+.dev_color {
+    color: #f600ff !important;
+}
+
+.builder_color {
+    color: #d41013 !important;
+}
+
+.moderateurs_color {
+    color: #a84300 !important;
+}
+
+.bot_color {
+    color: #206694 !important;
+}
+
+@media (max-width: 800px) {
+    .widget,
+    .member,
+    #member {
+        display: none;
+        width: 0px;
+        height: 0px;
+        margin: 0 0 0 0;
+        position: relative;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+}

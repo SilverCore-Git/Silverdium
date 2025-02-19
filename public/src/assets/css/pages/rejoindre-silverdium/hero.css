@@ -1,0 +1,127 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css');
+
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    margin-top: 270px;
+    position: relative;
+    top: -280px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+    font-family: Stencil Std, fantasy;
+    color: #00FFFF;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(197, 104, 197, 0.8), 0 0 30px rgba(255, 0, 255, 0.8);
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+.text {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.text h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.text ul {
+    list-style: none;
+
+    margin-right: 50px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+
+    text-align: left;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #bc18b3, #287ca6 );
+
+    transition: all 0.4s;
+}
+.text ul:hover {
+    transform: translateY(-10px);
+}
+
+.text ul li a {
+    text-decoration: underline;
+    color: initial;
+}
+
+.launcher_btn {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.launcher_btn button {
+    background: none;
+    border: none;
+
+    font-size: 8rem;
+
+    margin-right: 40px;
+
+    cursor: pointer;
+
+    transition: all 0.4s;
+}
+
+.launcher_btn button:hover {
+    transform: scale(1.1);
+}
+.launcher_btn button:active {
+    transform: scale(0.95);
+}
+
+.btn-linux {
+
+    position: relative;
+    top: 10px;
+
+    width: 7rem;
+    height: auto;
+    max-width: 900px;
+}
+
+
+@media (max-width: 900px) {
+    .text h3 {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 780px) {
+    .launcher_btn {
+        flex-direction: column;
+    }
+    .hero {
+        margin-top: 350px;
+    }
+}

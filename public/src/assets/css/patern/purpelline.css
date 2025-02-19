@@ -1,0 +1,38 @@
+/* From Uiverse.io by jaykdoe */ 
+.purpline {
+    width: 110%;
+    /* height: 100%; */
+    /* Add your background pattern here */
+    background: linear-gradient(
+      -45deg,
+      #00eff8,
+      #f800b4,
+      #ebf503,
+      #02f6c1,
+      #00eff8,
+      #9400f8
+    );
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+    filter: blur(3px);
+    height: 100%;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

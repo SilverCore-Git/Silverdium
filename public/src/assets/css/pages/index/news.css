@@ -1,0 +1,77 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+.news {
+    width: 110%;
+    padding: 20px 0;
+    color: wheat;
+    z-index: 10;
+}
+
+.news_contaner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 30px;
+    width: max-content;
+}
+
+.news_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 70px;
+    padding: 10px 5px 20px;
+    width: 300px;
+    color: black;
+    background: linear-gradient(130deg, #c918cf, #b618a1, #a11332);
+    border-radius: 15px;
+}
+
+.news_title {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    width: 300px; /* Taille des news */
+    flex-shrink: 0;
+}
+
+
+.news_footer {
+    margin: 0;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(50%); 
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 830px) {
+    .news {
+        display: none;
+    }
+  }
