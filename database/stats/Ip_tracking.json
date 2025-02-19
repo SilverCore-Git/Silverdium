@@ -3,10 +3,27 @@
         "ip.ip.v4.v4": {
             "suspect": {
                 "value": true,
-                "point": 5
-            }
+                "point": 5,
+                "blacklist": true
+            },
             "connect": {
-                "today": 4
+                "today": 4,
+                "error": 1,
+                "api": 3
+            }
+        }
+    },
+    "20-02-2025": {
+        "ip.ip.v4.v4": {
+            "suspect": {
+                "value": false,
+                "point": 0,
+                "blacklist": false
+            },
+            "connect": {
+                "today": 1,
+                "error": 0,
+                "api": 1
             }
         }
     }
