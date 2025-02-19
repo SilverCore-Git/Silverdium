@@ -1,0 +1,205 @@
+<!--
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <!-- meta divers -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="hostname" content="silverdium.fr">
+        <meta name="copyright" content="2024 - 2025 Silverdium | SilverCore">
+        <meta name="author" content="SilverCore | Silverdium | xzp4x | MisterPapaye">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#9316d3">
+
+        <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
+
+        <!-- meta SEO -->
+        <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
+        <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta name="language" content="fr">
+        <meta name="geo.region" content="FR">
+        <meta name="googlebot" content="index, follow">
+        <meta name="rating" content="general">
+        <meta name="format-detection" content="telephone=no">
+
+        <!-- meta open graph -->
+        <meta property="og:title" content="Silverdium">
+        <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta property="og:image" content="https://api.silverdium.fr/img/dium/logo.png">
+        <meta property="og:site_name" content="Rejoindre - Silverdium - Minecraft">
+        <meta property="og:locale" content="fr_FR">
+
+    
+        <!-- SilverPopups -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script>
+ 
+        
+        <!-- Google Analytics  -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1S2EJD13P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-Y1S2EJD13P');
+        </script>
+
+        <!-- recaptcha for your security !! -->
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcSAs4qAAAAAC65G0pzxb3I5pQh9Na-l7oDaEF-"></script>
+
+
+
+        <!-- libs javascript -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+        <!-- libs css -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+        <!-- utils scripts -->
+        <script src="/src/assets/js/utils/loadblock.js" defer></script>
+
+        <!-- patern -->
+        <link rel="stylesheet" href="/src/assets/css/patern/bluestyle.css">
+        <link rel="stylesheet" href="/src/assets/css/patern/purpelline.css">
+
+        <!-- Basic style -->
+        <link rel="stylesheet" href="/assets/body?ext=css">
+        <link rel="stylesheet" href="/assets/header?ext=css">
+
+
+
+
+
+
+
+        <!-- Page style -->
+        <link rel="stylesheet" href="/src/assets/css/pages/rejoindre-silverdium/hero.css">
+        <link rel="stylesheet" href="/src/assets/css/pages/rejoindre-silverdium/launcher_img.css">
+
+        <!-- page scripts -->
+        <script src="/assets/btn_launcher?ext=js"></script>
+
+
+
+        <title>Rejoindre - Silverdium | Serveur Minecraft "PVP - FACTION - MODEE" unique en son genre</title>
+
+    </head>
+
+    <body>
+        
+        <header>
+
+            <div>
+                <img src="https://api.silverdium.fr/img/dium/logo.png" alt="Logo">
+                <h2 class="titleh2">Silverdium</h2>
+            </div>
+
+            <nav>
+
+                <ul>
+                    <li><a href="/#body">Accueil</a></li>
+                    <li><a href="/go/tipeee">Faire un don</a></li>
+                    <li><a href="/go/rejoindre-silverdium">Launcher</a></li>
+                    <li><a href="/#savoir">En savoir plus</a></li>
+                    <li><a href="/go/discord">Discord</a></li>
+                </ul>
+
+            </nav>
+            
+        </header>
+        
+
+
+        <main class="hero">
+
+            <h1><strong> TELECHARGER LE LAUNCHER </strong></h1>
+
+            <div class="launcher_btn">
+
+                <div>
+                    <button onclick="downl('linux')"><img class="btn-linux" src="https://api.silverdium.fr/img/app/linux.png"></button>
+                    <button onclick="downl('win')" style="color: #357EC7; text-shadow: 0 0 900px rgba(213, 122, 25, 0.829);" class="bi bi-windows"></button>
+                </div>
+                <div>
+                    <button onclick="downl('mac')" style="text-shadow: 0 0 900px rgba(255, 255, 255, 0.653);" class="bi bi-apple"></button>
+                    <button onclick="github('launcher')" style="color: #ffff; text-shadow: 0 0 900px rgba(0, 0, 0, 0.792);" class="bi bi-github"></button>
+                </div>
+
+            </div>
+
+            <strong class="text">
+                <h3>
+                    <ul>
+                        Le launcher de silverdium,
+                        <br>permet la mise a jours automatique
+                        <br>des mods et interface de silverdium !
+                    </ul>
+                    <ul>
+                        <li>Codé en javascript, css et html</li>
+                        <li>Base sur le <a href="https://github.com/luuxis/Selvania-Launcher">selvana launcher</a></li>
+                        <li>open source sur <a href="https://github.com/Philippeletug/Silverdium-Launcher/">github</a></li>
+                    </ul>
+                </h3>
+            </strong>
+
+            <a style="text-decoration: none;" class="btn_img_a" href="#launcher_img"><button class="btn_img">Capture d'écran</button></a>
+
+        </main>
+
+        <div style="position: relative; top: -90px;" id="launcher_img"></div>
+        <section class="launcher_img">
+
+            <div class="launcher_card">
+
+                <div class="launcher_img_contaner">
+                    <img src="/src/assets/img/launcher/img3.png" placeholder="Capture d'écran">
+                </div>
+                
+                <div class="launcher_img_contaner">
+                    <img src="/src/assets/img/launcher/img4.png" placeholder="Capture d'écran">
+                </div>
+
+            </div>
+
+            <div class="launcher_card">
+
+                <div class="launcher_img_contaner">
+                    <img src="/src/assets/img/launcher/img5.png" placeholder="Capture d'écran">
+                </div>
+                
+                <div class="launcher_img_contaner">
+                    <img src="/src/assets/img/launcher/img1.png" placeholder="Capture d'écran">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div id="footer"></div>
+ 
+    </body>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+
+</html>

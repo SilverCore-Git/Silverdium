@@ -1,0 +1,135 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+.hero {
+    font-family: Stencil Std, fantasy;
+    user-select: none;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    left: 0;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: #00FFFF;
+    letter-spacing: 3px;
+    text-shadow: 0 0 30px rgba(197, 104, 197, 0.8), 0 0 30px rgba(255, 0, 255, 0.8);
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+
+.discord_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.discord_card div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-right: 5rem;
+}
+.discord_card div .discord_img {
+    font-size: 12rem;
+    margin-bottom: 50px;
+
+    color: #5562ea;
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+
+    transition: all 0.4s;
+}
+.discord_card div .discord_img:hover {
+    transform: rotate(calc(360deg * 2)) scale(0.96);
+    text-shadow: 0 0 50px rgba(27, 60, 75, 0.5);
+}
+.discord_card div .discord_img:active {
+    transform: scale(0.90);
+}
+
+/* From Uiverse.io by Sergestra */ 
+.discord_btn {
+    outline: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    height: 100px;
+    border-radius: 0.5em;
+    box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35);
+    overflow: hidden;
+   }
+   
+   .discord_btn div {
+    transform: translateY(0px);
+    width: calc(100% + 10px);
+    position: relative;
+    top: -10px;
+    left: -5px;
+   }
+   
+   .discord_btn,
+   .discord_btn div {
+    transition: 0.6s cubic-bezier(.16,1,.3,1);
+   }
+   
+   .discord_btn div span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0.75em 1.125em;
+   }
+   
+   .discord_btn div:nth-child(1) {
+    background-color: #1e90ff;
+   }
+   
+   .discord_btn div:nth-child(2) {
+    background-color: #21dc62;
+   }
+   
+   .discord_btn:hover {
+    box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35);
+   }
+   
+   .discord_btn:hover div {
+    transform: translateY(-120px);
+   }
+   
+   .discord_btn p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+   }
+   
+   .discord_btn:active {
+    transform: scale(0.95);
+   }
+
+   @media (max-width: 800px) {
+    .discord_card div,
+    .discord_btn {
+        position: relative;
+        left: 0;
+        margin: 0 0 0 0;
+    }
+   }

@@ -1,0 +1,103 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+
+header {
+    width: 100%;
+    height: 30px;
+
+    margin-top: 0;
+    top: 0;
+
+    position: fixed;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(130deg, #5f08b1, #b61862, #ff4b2b);
+    padding: 20px 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    z-index: 10;
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+}
+
+header div .titleh2 {
+    font-size: 2.1rem;
+    color: white;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header div img {
+    height: 3.1rem;
+    width: auto;
+    margin-right: 10px;
+    margin-left: 2rem;
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    margin-right: 3rem;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+
+nav ul li {
+    position: relative;
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: block;
+    padding: 10px 10px 8px 15px;
+    border-radius: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+nav ul li a:hover {
+    color: #ffdc00; 
+    transform: scale(1.1); 
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffdc00;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+nav ul li a:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

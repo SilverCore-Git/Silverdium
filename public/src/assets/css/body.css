@@ -1,0 +1,46 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    align-content: center;
+
+    background: linear-gradient(
+        120deg,
+        #5f08b1,
+        #c218b9,
+        #b8119c,
+        #c21054,
+        #a74913
+    );
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://api.silverdium.fr/img/dium/baniere.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(7px);
+    z-index: -1;
+}
+

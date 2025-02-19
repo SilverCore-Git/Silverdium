@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <!-- meta divers -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="hostname" content="silverdium.fr">
+        <meta name="copyright" content="2024 - 2025 Silverdium | SilverCore">
+        <meta name="author" content="SilverCore | Silverdium | xzp4x | MisterPapaye">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#9316d3">
+
+        <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
+
+        <!-- meta SEO -->
+        <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
+        <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta name="language" content="fr">
+        <meta name="geo.region" content="FR">
+        <meta name="googlebot" content="index, follow">
+        <meta name="rating" content="general">
+        <meta name="format-detection" content="telephone=no">
+
+        <!-- meta open graph -->
+        <meta property="og:title" content="Silverdium">
+        <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta property="og:image" content="https://api.silverdium.fr/img/dium/logo.png">
+        <meta property="og:site_name" content="Discord - Silverdium - Minecraft">
+        <meta property="og:locale" content="fr_FR">
+
+    
+        <!-- SilverPopups -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script>
+
+        
+        <!-- Google Analytics  -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1S2EJD13P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+         
+          gtag('config', 'G-Y1S2EJD13P');
+        </script>
+
+        <!-- recaptcha for your security !! -->
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcSAs4qAAAAAC65G0pzxb3I5pQh9Na-l7oDaEF-"></script>
+
+
+
+        <!-- libs javascript -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+        <!-- libs css -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+        <!-- utils scripts -->
+        <script src="/src/assets/js/utils/loadblock.js" defer></script>
+
+        <!-- patern -->
+        <link rel="stylesheet" href="/src/assets/css/patern/bluestyle.css">
+        <link rel="stylesheet" href="/src/assets/css/patern/purpelline.css">
+
+        <!-- Basic style -->
+        <link rel="stylesheet" href="/assets/body?ext=css">
+        <link rel="stylesheet" href="/assets/header?ext=css">
+
+
+
+
+
+        <!-- page style -->
+        <link rel="stylesheet" href="/src/assets/css/pages/discord/hero.css">
+        <link rel="stylesheet" href="/assets/discord_widget?ext=css">
+
+        <!-- page script -->
+        <script src="/assets/discord_widget?ext=js" type="module" defer></script>
+
+        <title>Discord - Silverdium | Serveur Minecraft "PVP - FACTION - MODEE" unique en son genre</title>
+
+    </head>
+
+    <body style="overflow: hidden;">
+        
+        <header>
+
+            <div>
+                <img src="https://api.silverdium.fr/img/dium/logo.png" alt="Logo">
+                <h2 class="titleh2">Silverdium</h2>
+            </div>
+
+            <nav>
+
+                <ul>
+                    <li><a href="/#body">Accueil</a></li>
+                    <li><a href="/go/tipeee">Faire un don</a></li>
+                    <li><a href="/go/rejoindre-silverdium">Launcher</a></li>
+                    <li><a href="/#savoir">En savoir plus</a></li>
+                    <li><a href="/go/discord">Discord</a></li>
+                </ul>
+
+            </nav>
+            
+        </header> 
+
+        <main class="hero">
+            <h1><strong>SE connecter</strong></h1>
+            <iframe 
+                style="
+                    border: none; 
+                    width: 100%; 
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    left: 0;
+                " 
+                src="/auth/login"
+            ></iframe>
+        </main>
+
+        
+    </body>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    
+    </script>
+
+</html>
