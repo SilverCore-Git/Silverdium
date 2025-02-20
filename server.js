@@ -10,7 +10,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 // libs
-const Api = require('./src/api/api_gestion.js').default;
+const Api = require('./src/api/client.js').default;
 const api = new Api();
 
 const AZauth = require('./src/auth/AZauth.js').default;
