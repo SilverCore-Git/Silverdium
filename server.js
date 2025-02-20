@@ -4,18 +4,24 @@
  * @author MisterPapaye
  */
 
+
+
+      //          ###################################
+      //          #                                 #
+      //          #        CHARGEMENT DIVERS        #
+      //          #                                 #
+      //          ###################################
+
 // package
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
 // libs
-const Api = require('./src/api/client.js').default;
+const Api = require('./src/api/api_gestion.js').default;
 const api = new Api();
-
 const AZauth = require('./src/auth/AZauth.js').default;
 const azAuth = new AZauth("http://api.dium.silverdium.fr:54/index.php");
-
 
 // API config / data
 const API_CLIENT_DATA = require('./config/API_CLIENT_DATA.json');
@@ -25,36 +31,71 @@ const link = link_config;
 
 
 
+
+      //          #####################################
+      //          #                                   #
+      //          #        DEMARRAGE D'EXPRESS        #
+      //          #                                   #
+      //          #####################################
+
 // launch express
 const app = express();
 
-// redirection auto
+
+
+    //          #####################################
+    //          #                                   #
+    //          #          CHEMINS BASICS           #
+    //          #                                   #
+    //          #####################################
+
+// redirection auto vers public/ pour app.get('/')
 app.use(express.static(path.join(__dirname, 'public')), cookieParser());
 
+// redirection des /pages vers /go/pages
 app.get('/tipeee', (req, res) => { res.redirect('/go/tipeee') });
 app.get('/discord', (req, res) => { res.redirect('/go/tipeee') });
 app.get('/jouer', (req, res) => { res.redirect('/go/rejoindre-silverdium') });
 app.get('/rejoindre-silverdium', (req, res) => { res.redirect('/go/rejoindre-silverdium') });
 
+// trash
+app.get('/login_form.html', (req, res) => {
+  res.sendFile(__dirname + '/public/src/pages/auth/login_form.html')
+})
+
+// redirection des pages de auth
+app.get('/login', (req, res) => { res.sendFile(__dirname + "/public/src/pages/auth/login.html") });
+app.get('/register', (req, res) => { res.redirect('https://auth.silverdium.fr') });
+app.get('/auth', (req, res) => { res.redirect('/login') });
+
+// redirection des fichier bots dans racines
 app.get('/robots.txt', (req, res) => { res.redirect('/robots.txt') });
 app.get('/sitemap.xml', (req, res) => { res.redirect('/sitemap.xml') });
 app.get('/ads.txt', (req, res) => { res.redirect('/ads.txt') });
 
-app.get('/local', (req, res) => {
-  const file = req.query.file
-  const key = req.query.key
-  const callapi = api.conect(key, false)
+// redirection du /local (supréssion 50% de la fonction car mauvaise secu + utilité? = toi)
+// app.get('/local', (req, res) => {
+//   const file = req.query.file
+//   const key = req.query.key
+//   const callapi = api.conect(key, false)
 
-  if (callapi === true) {
-    res.sendFile(path.join(__dirname, file))
-  } else {
-    res.json(callapi)
-  }
+//   if (callapi === true) {
+//     res.sendFile(path.join(__dirname, file))
+//   } else {
+//     res.json(callapi)
+//   }
 
-})
+// })
 
 
-// to go to a page (mi very good english)
+
+    //          #####################################
+    //          #                                   #
+    //          #          CHEMINS AVANCE           #
+    //          #                                   #
+    //          #####################################
+
+// chemin de récuperation des pages ! /go/page = page.html dans public/src/pages/views/
 app.get('/go/:page', (req, res) => {
 
   const page = req.params.page
@@ -66,7 +107,7 @@ app.get('/go/:page', (req, res) => {
 });
 
 
-// /assets/myfile?ext=css
+// chemin de récuperation des ressources type assets. use ==> /assets/myfile?ext=css => assets/ext/myfile.ext
 app.get('/assets/:file', (req, res) => {
 
   const file = req.params.file
@@ -87,13 +128,11 @@ app.get('/assets/:file', (req, res) => {
 })
 
 
-// az auth => /auth/page or /auth/az?bg=login&mail=mail@caca.com&passwd=monsuperpasswd&key=apikey
-app.get('/auth/:get', (req, res) => {
-  console.log("______ Réception d'une requette /auth/")
+// chemin de récuperation pour SilverAuth => /auth/page or api/auth?az=login&mail=mail@caca.com&passwd=monsuperpasswd&key=apikey
+app.get('/api/auth', (req, res) => {
+  console.log("______ Réception d'une requette /api/auth/")
 
-  const get = req.params.get
-  const action = req.query.bg
-  const username = req.query.name
+  const action = req.query.az
   const mail = req.query.mail
   const passwd = req.query.passwd
   const key = req.query.key
@@ -102,7 +141,6 @@ app.get('/auth/:get', (req, res) => {
 
   if (client) {
 
-    if (get === 'az') {
 
           // Connexion d'un utilisateur
       if (action === 'login') {
@@ -196,12 +234,15 @@ app.get('/auth/:get', (req, res) => {
       }
 
       else {
-        res.send("Erreur de configuration de l'action")
+        res.json({
+          error: true,
+          message: "Erreur dans la composition de la requette !",
+          usage: "/api/auth?az=action&mail=mail@olala.com&passwd=mon super passwd"
+        })
       };
 
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'auth', `${get}.html`))
-    }};
+  }
+
 })
 
 

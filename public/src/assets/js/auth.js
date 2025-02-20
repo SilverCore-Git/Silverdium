@@ -4,13 +4,12 @@
  * @author MisterPapaye
  */
 
-const url = "/auth/az";
+const url = "/api/auth";
 const api_key = "ce4693ea4cb18818f107a20cf89f26ab";
 
+export  function login(mail, passwd) {
 
-function register(name, mail, passwd) {
-
-    fetch(`${url}?bg=register&name=${name}&mail=${mail}&passwd=${passwd}&key=${api_key}`, {
+    fetch(`${url}?az=login&mail=${mail}&passwd=${passwd}&key=${api_key}`, {
         method: "POST",
     })
     .then(response => {
@@ -23,9 +22,9 @@ function register(name, mail, passwd) {
 }
 
 
-function login(mail, passwd) {
+export  function verify() {
 
-    fetch(`${url}?bg=login&mail=${mail}&passwd=${passwd}&key=${api_key}`, {
+    fetch(`${url}?az=verify&key=${api_key}`, {
         method: "POST",
     })
     .then(response => {
@@ -38,9 +37,9 @@ function login(mail, passwd) {
 }
 
 
-function verify() {
+export  function logout() {
 
-    fetch(`${url}?bg=verify&key=${api_key}`, {
+    fetch(`${url}?az=logout&key=${api_key}`, {
         method: "POST",
     })
     .then(response => {
@@ -50,28 +49,4 @@ function verify() {
         return err
     })
 
-}
-
-
-function logout() {
-
-    fetch(`${url}?bg=logout&key=${api_key}`, {
-        method: "POST",
-    })
-    .then(response => {
-        return response
-    })
-    .catch(err => {
-        return err
-    })
-
-}
-
-
-
-export default {
-    login,
-    register,
-    verify,
-    logout
 }

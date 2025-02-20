@@ -5,7 +5,6 @@
  */
 
 import nodeFetch from 'node-fetch';
-import crypto from 'crypto';
 
 export default class AZauth {
     constructor(baseUrl) {
