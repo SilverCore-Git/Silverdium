@@ -1,1 +1,14 @@
-test
+# aaaaaaaaah salut les bot !
+
+User-agent: *
+
+# Ne pas Autoriser
+Disallow: /api
+
+# Autoriser
+Allow: /go
+Allow: /login
+Allow: /
+
+
+Sitemap: https://silverdium.fr/sitemap.xml

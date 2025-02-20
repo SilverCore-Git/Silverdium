@@ -1,6 +1,23 @@
 {
+
+    "maintenance": {
+        "api": false,
+        "public": false
+    },
+
     "cookie": {
-        "value": true
+        "value": true,
         "expire": 12
+    },
+
+    "api": {
+        "open": true,
+        "auth": {
+            "open": true,
+            "devAccess": true,
+            "devAces_mdp": "olalaLeGigaMDP",
+            "devAces_id": "monemail@haaaaaaa.oh"
+        }
     }
+
 }
