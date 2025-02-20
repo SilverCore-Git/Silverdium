@@ -1,5 +1,6 @@
 {
     "cookie": {
+        "value": true
         "expire": 12
     }
 }
