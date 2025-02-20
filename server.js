@@ -18,7 +18,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 // libs
-const Api = require('./src/api/api_gestion.js').default;
+const Api = require('./src/api/client.js').default;
 const api = new Api();
 const AZauth = require('./src/auth/AZauth.js').default;
 const azAuth = new AZauth("http://api.dium.silverdium.fr:54/index.php");
@@ -177,7 +177,7 @@ app.get('/api/auth', (req, res) => {
           
             });
 
-            azAuth.skin(response.uuid).then(skin => 
+            azAuth.skin(response.uuid).then(skin =>
               res.json({
                 response: response,
                 skin: skin
@@ -250,95 +250,94 @@ app.get('/api/auth', (req, res) => {
 //     A REVOIR !!!!
 
 // ex /api/GOOD_API_KEY?action=get?spec=olala?option=MY_GOOD_OPTION
-app.get('/api/:key', (req, res) => {
-  console.log("Réception d'une requette vers l'api /api/");
+// app.get('/api/:key', (req, res) => {
+//   console.log("Réception d'une requette vers l'api /api/");
 
-  const action = req.query.action
-  const spec = req.query.spec
-  const option = req.query.option
-  const Key = req.params.key
+//   const action = req.query.action
+//   const spec = req.query.spec
+//   const option = req.query.option
+//   const Key = req.params.key
 
-  if (action) {
-    execut_action()
-  } else {
-    api.conect(Key)
-  }
+//   if (action) {
+//     execut_action()
+//   } else {
+//     api.conect(Key)
+//   }
 
-  function execut_action() {
-    if (Key) {
+//   function execut_action() {
+//     if (Key) {
 
-      console.log("Client connecter ! API_KEY = ", Key)
-      console.log("Information du client :")
-      console.log(API_CLIENT_DATA[Key])
+//       console.log("Client connecter ! API_KEY = ", Key)
+//       console.log("Information du client :")
+//       console.log(API_CLIENT_DATA[Key])
 
-      if (action === 'get_launcher') {
+//       if (action === 'get_launcher') {
 
-        const launcher_github = 'https://github.com/Philippeletug/Silverdium-Launcher';
-        const launcher_latest = '1.1.6';
-        const launcher_name = 'Silverdium-Launcher';
-        const launcher_linux = "Silverdium-Launcher-linux-x86_64.rpm";
-        const launcher_win = "Silverdium-Launcher-win-x64.exe";
-        const launcher_mac = "Silverdium-Launcher-mac-universal.dmg";
+//         const launcher_github = 'https://github.com/Philippeletug/Silverdium-Launcher';
+//         const launcher_latest = '1.1.6';
+//         const launcher_name = 'Silverdium-Launcher';
+//         const launcher_linux = "Silverdium-Launcher-linux-x86_64.rpm";
+//         const launcher_win = "Silverdium-Launcher-win-x64.exe";
+//         const launcher_mac = "Silverdium-Launcher-mac-universal.dmg";
 
-        if (option === 'latest') {
-          const download_path = `${launcher_github}/releases/download/${launcher_latest}/`
-          res.json ({
+//         if (option === 'latest') {
+//           const download_path = `${launcher_github}/releases/download/${launcher_latest}/`
+//           res.json ({
 
-            message: "Connection etablie avec l'api !",
-            status: "succes",
+//             message: "Connection etablie avec l'api !",
+//             status: "succes",
 
-            launcher_name: launcher_name,
-            launcher_latest: launcher_latest,
-            version: option,
+//             launcher_name: launcher_name,
+//             launcher_latest: launcher_latest,
+//             version: option,
 
-            github_path: launcher_github,
+//             github_path: launcher_github,
 
-            launcher_linux: launcher_linux,
-            launcher_win: launcher_win,
-            launcher_mac: launcher_mac,
+//             launcher_linux: launcher_linux,
+//             launcher_win: launcher_win,
+//             launcher_mac: launcher_mac,
 
-            download_path: {
-              "main": download_path,
-              'linux': download_path + launcher_linux,
-              "win": download_path + launcher_win,
-              "mac": download_path + launcher_mac,
-            }
+//             download_path: {
+//               "main": download_path,
+//               'linux': download_path + launcher_linux,
+//               "win": download_path + launcher_win,
+//               "mac": download_path + launcher_mac,
+//             }
 
-          })
-        } else {
-          const download_path = `${launcher_github}/releases/download/${option}/`;
-          res.json ({
+//           })
+//         } else {
+//           const download_path = `${launcher_github}/releases/download/${option}/`;
+//           res.json ({
 
-            message: "Connection etablie avec l'api !",
-            status: "succes",
+//             message: "Connection etablie avec l'api !",
+//             status: "succes",
 
-            launcher_name: launcher_name,
-            launcher_latest: launcher_latest,
-            version: option,
+//             launcher_name: launcher_name,
+//             launcher_latest: launcher_latest,
+//             version: option,
 
-            github_path: launcher_github,
+//             github_path: launcher_github,
 
-            launcher_linux: launcher_linux,
-            launcher_win: launcher_win,
-            launcher_mac: launcher_mac,
+//             launcher_linux: launcher_linux,
+//             launcher_win: launcher_win,
+//             launcher_mac: launcher_mac,
 
-            download_path: {
-              "main": download_path,
-              'linux': download_path + launcher_linux,
-              "win": download_path + launcher_win,
-              "mac": download_path + launcher_mac,
-            }
-          })
-        }
-      }
+//             download_path: {
+//               "main": download_path,
+//               'linux': download_path + launcher_linux,
+//               "win": download_path + launcher_win,
+//               "mac": download_path + launcher_mac,
+//             }
+//           })
+//         }
+//       }
 
-    }
-  }
-
-
+//     }
+//   }
 
 
-})
+//})
+
 app.get('/api', (req, res) => { 
   res.json({
     message: "La clé d'api n'est pas défini...",
