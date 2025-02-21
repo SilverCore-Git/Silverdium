@@ -70,6 +70,7 @@
 
         <!-- utils scripts -->
         <script src="/src/assets/js/utils/loadblock.js" defer></script>
+        <script src="/assets/verify_auth?ext=js" type="module" defer></script>
 
         <!-- patern -->
         <link rel="stylesheet" href="/src/assets/css/patern/bluestyle.css">
@@ -116,7 +117,33 @@
                 </ul>
 
             </nav>
-            
+
+            <div id="account_ul">
+
+                <div class="auth_nav">
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><a href="/login">Connection</a></li>
+                        <li><a href="/register">Inscription</a></li>
+                    </ul>
+                </div>
+
+                <div class="auth_profile">
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><canvas id="face_skin"></canvas></li>
+                        <li class="dropdown">
+                            <a href="#" id="auth_name">Nom d'utilisateur</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a id="logout">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+
+            </div> 
+             
         </header>
         
 

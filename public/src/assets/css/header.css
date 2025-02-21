@@ -45,10 +45,10 @@ header div img {
     border-radius: 10px;
 }
 
+
 nav ul {
     list-style-type: none;
     margin: 0;
-    margin-right: 3rem;
     padding: 0;
     display: flex;
     gap: 30px;
@@ -100,4 +100,136 @@ nav ul li a:hover::after {
 
 nav ul li a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.auth_nav {
+    margin-right: 3rem;
+}
+
+.auth_nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    padding: 10px 10px 5px 5px ;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+
+.auth_nav ul li {
+    position: relative;
+}
+
+
+.auth_nav ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: block;
+    padding: 5px 5px 8px 15px;
+    border-radius: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+.auth_nav ul li a:hover {
+    color: #ffdc00; 
+    transform: scale(1.05); 
+}
+
+
+.auth_profile {
+    margin-right: 3rem;
+}
+
+.auth_profile ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 10px 10px 5px 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.auth_profile ul li {
+    position: relative;
+}
+
+.auth_profile ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: block;
+    padding: 5px 5px 8px 15px;
+    border-radius: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.auth_profile ul li a:hover {
+    color: #ccc; /* Change color on hover */
+}
+
+.auth_profile canvas {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+/* Dropdown menu styles */
+.auth_profile .dropdown {
+    position: relative;
+}
+
+.auth_profile .dropdown .dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 160px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.auth_profile .dropdown:hover .dropdown-menu {
+    display: block; /* Show when hovering over the parent */
+}
+
+.auth_profile .dropdown-menu li {
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.auth_profile .dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.auth_profile .dropdown-menu li a:hover {
+    background-color: #555;
+    border-radius: 6px;
 }

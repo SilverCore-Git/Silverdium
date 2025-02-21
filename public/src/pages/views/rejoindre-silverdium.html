@@ -20,7 +20,7 @@
 
         <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
 
-        <!-- meta SEO -->
+        <!-- meta SEO --> 
         <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
         <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta name="language" content="fr">
@@ -39,8 +39,8 @@
     
         <!-- SilverPopups -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
-        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script>
+        <!-- <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script> -->
  
         
         <!-- Google Analytics  -->
@@ -67,13 +67,14 @@
 
         <!-- utils scripts -->
         <script src="/src/assets/js/utils/loadblock.js" defer></script>
+        <script src="/assets/verify_auth?ext=js" type="module" defer></script>
 
         <!-- patern -->
         <link rel="stylesheet" href="/src/assets/css/patern/bluestyle.css">
         <link rel="stylesheet" href="/src/assets/css/patern/purpelline.css">
 
         <!-- Basic style -->
-        <link rel="stylesheet" href="/assets/body?ext=css">
+        <!-- <link rel="stylesheet" href="/assets/body?ext=css"> -->
         <link rel="stylesheet" href="/assets/header?ext=css">
 
 
@@ -85,6 +86,47 @@
         <!-- Page style -->
         <link rel="stylesheet" href="/src/assets/css/pages/rejoindre-silverdium/hero.css">
         <link rel="stylesheet" href="/src/assets/css/pages/rejoindre-silverdium/launcher_img.css">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+
+                overflow-x: hidden;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; 
+                text-align: center;
+                align-content: center;
+
+                background: linear-gradient(
+                    120deg,
+                    #5f08b1,
+                    #c218b9,
+                    #b8119c,
+                    #c21054,
+                    #a74913
+                );
+                background-size: 400% 400%;
+                animation: gradient 20s ease infinite;
+            }
+
+            body::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('/src/assets/img/lobby.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                filter: blur(1px);
+                z-index: -1;
+            }
+        </style>
 
         <!-- page scripts -->
         <script src="/assets/btn_launcher?ext=js"></script>
@@ -104,10 +146,10 @@
                 <h2 class="titleh2">Silverdium</h2>
             </div>
 
-            <nav>
+            <nav style="z-index: 100;">
 
                 <ul>
-                    <li><a href="/#body">Accueil</a></li>
+                    <li><a href="/">Accueil</a></li>
                     <li><a href="/go/tipeee">Faire un don</a></li>
                     <li><a href="/go/rejoindre-silverdium">Launcher</a></li>
                     <li><a href="/#savoir">En savoir plus</a></li>
@@ -115,7 +157,33 @@
                 </ul>
 
             </nav>
-            
+
+            <div id="account_ul">
+
+                <div class="auth_nav">
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><a href="/login">Connection</a></li>
+                        <li><a href="/register">Inscription</a></li>
+                    </ul>
+                </div>
+
+                <div class="auth_profile">
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><canvas id="face_skin"></canvas></li>
+                        <li class="dropdown">
+                            <a href="#" id="auth_name">Nom d'utilisateur</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a id="logout">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+
+            </div> 
+             
         </header>
         
 
