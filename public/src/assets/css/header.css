@@ -24,6 +24,10 @@ header {
     z-index: 10;
 }
 
+header a {
+    text-decoration: none;  
+}
+
 header div {
     display: flex;
     flex-direction: row;
@@ -46,7 +50,7 @@ header div img {
 }
 
 
-nav ul {
+.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -55,12 +59,12 @@ nav ul {
 }
 
 
-nav ul li {
+.nav ul li {
     position: relative;
 }
 
 
-nav ul li a {
+.nav ul li a {
     text-decoration: none;
     color: white;
     font-size: 18px;
@@ -75,30 +79,12 @@ nav ul li a {
 }
 
 
-nav ul li a:hover {
+.nav ul li a:hover {
     color: #ffdc00; 
     transform: scale(1.1); 
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #ffdc00;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-nav ul li a:hover {
+.nav ul li a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -144,12 +130,9 @@ nav ul li a:hover {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-
 .auth_nav ul li a:hover {
-    color: #ffdc00; 
-    transform: scale(1.05); 
+    color: #ffdc00;
 }
-
 
 .auth_profile {
     margin-right: 3rem;
@@ -188,7 +171,7 @@ nav ul li a:hover {
 }
 
 .auth_profile ul li a:hover {
-    color: #ccc; /* Change color on hover */
+    color: #ffdc00;
 }
 
 .auth_profile canvas {
@@ -203,11 +186,11 @@ nav ul li a:hover {
 }
 
 .auth_profile .dropdown .dropdown-menu {
-    display: none; /* Hide by default */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333;
+    background: linear-gradient(130deg, #5f08b1, #ff4b2b);
     min-width: 160px;
     padding: 10px;
     border-radius: 10px;
@@ -215,8 +198,9 @@ nav ul li a:hover {
 }
 
 .auth_profile .dropdown:hover .dropdown-menu {
-    display: block; /* Show when hovering over the parent */
+    display: block;
 }
+
 
 .auth_profile .dropdown-menu li {
     padding: 8px 12px;
@@ -227,9 +211,20 @@ nav ul li a:hover {
     color: white;
     text-decoration: none;
     font-size: 16px;
+    display: flex;
+    flex-direction: row;
 }
 
-.auth_profile .dropdown-menu li a:hover {
-    background-color: #555;
-    border-radius: 6px;
+.bi {
+    margin-right: 10px;
+}
+
+.arow {
+    margin-left: 6px;
+    position: relative;
+    top: 0;
+    transition: all 0.3s;
+}
+.auth_profile .dropdown:hover .arow {
+    transform: rotate(-90deg);
 }

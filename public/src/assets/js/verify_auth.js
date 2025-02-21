@@ -4,7 +4,7 @@
  * @author MisterPapaye 
 **/
 
-import { verify, logout } from "/assets/auth?ext=js";
+import { verify, logout } from "/src/pages/auth/js/auth.js";
 import { skin2D } from "/src/assets/js/skin/skin2D.js";
 
 const Logout = document.getElementById('logout')
@@ -18,9 +18,9 @@ async function check() {
 
     document.querySelector('.auth_nav').style.display = 'none';
     document.querySelector('.auth_profile').style.display = 'none';
+    document.getElementById('auth_profile_admin').style.display = 'none';
 
-    const client = await new verify(); 
-    console.log(client)
+    const client = await new verify();
 
     if (client.response.error) {
 
@@ -43,10 +43,18 @@ async function check() {
 
         img.src = skin;
 
-        document.getElementById('auth_name').innerText = client.response.name + ' ⮜';
+        document.getElementById('auth_name').innerHTML = client.response.name + '<d class="arow">⮜</d>';
         document.getElementsByClassName('auth_profile')[0].style.display = 'flex';
+
+        if (client.response.user_info.role.id === 2) {
+
+            document.getElementById('auth_profile_admin').style.display = 'block';
+            document.getElementById('auth_name').style.color = '#b90fc9';
+
+        }
 
     }
 }
+
 
 check();

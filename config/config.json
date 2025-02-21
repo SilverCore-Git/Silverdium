@@ -7,7 +7,7 @@
 
     "cookie": {
         "value": true,
-        "expire": 12
+        "expire": 48
     },
 
     "api": {

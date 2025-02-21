@@ -90,48 +90,54 @@
         
         <header>
 
-            <div>
+            <a href="/"><div>
                 <img src="https://api.silverdium.fr/img/dium/logo.png" alt="Logo">
                 <h2 class="titleh2">Silverdium</h2>
-            </div>
+            </div></a>
 
-            <nav style="z-index: 100;">
+            <nav class="nav">
 
                 <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/go/tipeee">Faire un don</a></li>
-                    <li><a href="/go/rejoindre-silverdium">Launcher</a></li>
-                    <li><a href="/#savoir">En savoir plus</a></li>
-                    <li><a href="/go/discord">Discord</a></li>
+                    <li><a href="/#body"><i class="bi bi-house-door"></i>Accueil</a></li>
+                    <li><a href="/go/tipeee"><i class="bi bi-heart-fill"></i>Faire un don</a></li>
+                    <li><a href="/go/rejoindre-silverdium"><i class="bi bi-arrow-down-circle"></i>Launcher</a></li>
+                    <li><a href="/#savoir"><i class="bi bi-question-circle"></i>En savoir plus</a></li>
+                    <li><a href="/go/discord"><i class="bi bi-discord"></i>Discord</a></li>
                 </ul>
 
             </nav>
 
-            <div id="account_ul">
+            <nav id="account_ul">
 
                 <div class="auth_nav">
+
                     <ul style="display: flex; flex-direction: row;">
-                        <li><a href="/login">Connection</a></li>
-                        <li><a href="/register">Inscription</a></li>
+                        <li><a href="/login"><i class="bi bi-key-fill"></i>Connection</a></li>
+                        <li><a href="/register">Inscription<i style="margin-right: 0; margin-left: 10px;" class="bi bi-person-plus-fill"></i></a></li>
                     </ul>
+
                 </div>
 
+
                 <div class="auth_profile">
+
                     <ul style="display: flex; flex-direction: row;">
                         <li><canvas id="face_skin"></canvas></li>
                         <li class="dropdown">
-                            <a href="#" id="auth_name">Nom d'utilisateur</a>
+                            <a style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
+                                <li><a href="/profile">Profile</a></li>
+                                <li><a href="/skin">Mon skin</a></li>
+                                <li id="auth_profile_admin"><a href="/admin">Panel admin</a></li>
                                 <li><a id="logout">Déconnexion</a></li>
                             </ul>
                         </li>
                     </ul>
+
                 </div>
                 
 
-            </div> 
+            </nav> 
              
         </header>
 

@@ -40,7 +40,7 @@ body::before {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    filter: blur(7px);
+    filter: blur(10px) brightness(0.6);
     z-index: -1;
 }
 

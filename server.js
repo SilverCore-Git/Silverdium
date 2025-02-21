@@ -65,8 +65,10 @@ app.get('/login_form.html', (req, res) => {
 
 // redirection des pages de auth
 app.get('/login', (req, res) => { res.sendFile(__dirname + "/public/src/pages/auth/login.html") });
-app.get('/register', (req, res) => { res.redirect('https://auth.silverdium.fr') });
+app.get('/register', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/user/register') });
 app.get('/auth', (req, res) => { res.redirect('/login') });
+
+app.get('/user/:file', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `${req.params.file}.html`) ) });
 
 // redirection des fichier bots dans racines
 app.get('/robots.txt', (req, res) => { res.redirect('/robots.txt') });

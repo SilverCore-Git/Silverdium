@@ -1,0 +1,47 @@
+/**
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+**/
+
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css');
+
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    margin-top: 270px;
+    position: relative;
+    top: -280px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+    font-family: Stencil Std, fantasy;
+    color: #00FFFF;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(197, 104, 197, 0.8), 0 0 30px rgba(255, 0, 255, 0.8);
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+
+
+@media (max-width: 900px) {
+    .text h3 {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 780px) {
+    .hero {
+        margin-top: 350px;
+    }
+}

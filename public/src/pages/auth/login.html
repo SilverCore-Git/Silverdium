@@ -33,8 +33,8 @@
     
         <!-- SilverPopups -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
-        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script>
+        <!-- <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script> -->
 
         
         <!-- Google Analytics  -->
@@ -119,6 +119,7 @@
         </style>
 
         <!-- page script -->
+        <script src="/src/pages/auth/js/login.js" type="module"></script>
 
         <title>Login - Silverdium | Serveur Minecraft "PVP - FACTION - MODEE" unique en son genre</title>
 
@@ -152,7 +153,7 @@
             <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative; top: 16rem; left: 6px;">
 
                 <script src="https://cdn.tailwindcss.com"></script>
-                <form id="conect" style="border: none; width: 110%; height: 100vh;">
+                <form id="conect" style="border: none; width: 110%;">
 
                     <!-- From Uiverse.io by Yaya12085 -->
 
@@ -174,7 +175,7 @@
                             <label class="justify-between p-1 text-gray-300">
                                 Connection avec <strong>SilverAuth</strong> !
                                 Utilisation de la <strong><a style="color: white;" href="https://auth.silverdium.fr">silverdium API</a></strong>
-                                sur le CDN aeuriom !
+                                sur le CDN aeuriom
                             </label>
 
                             <!-- <label class="flex cursor-pointer items-center justify-between p-1 text-gray-300">
@@ -185,9 +186,10 @@
                                 </div>
                             </label> -->
 
-                            <button id="btn" style="margin-top: 2rem; margin-bottom: 1rem;" class="inline-block cursor-pointer rounded-md bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:from-blue-700 hover:to-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-95">
+                            <button type="submit" id="btn" style="margin-top: 2rem; margin-bottom: 1rem;" class="inline-block cursor-pointer rounded-md bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:from-blue-700 hover:to-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-95">
                                 Se connecter !
                             </button>
+                            <a href="/" style="color: rgb(122, 201, 188); text-decoration: underline;">Retourner a l'Accueil</a>
                         
                         </div>
 
@@ -216,12 +218,12 @@
                     </div>
                 </section>
 
-                <section style="position:  relative; top: 5rem; right: 1rem; justify-content: center; align-items: center; flex-direction: column; color: white;" id="success">
+                <!-- <section style="position:  relative; top: 5rem; right: 1rem; justify-content: center; align-items: center; flex-direction: column; color: white;" id="success">
                     <strong>
                         <h1 style="font-size: 2rem;">Connection reussi !</h1>
                         <p style="font-size: 1.1rem;">Tu va être rediriger d'ici peut...</p>
                     </strong>
-                </section>
+                </section> -->
 
             </div>
 
@@ -229,55 +231,6 @@
         
     </body>
 
-    <script type="module">
-
-        document.getElementById('conect').style.display = 'flex'
-        document.getElementById('loader').style.display = 'none'
-        document.getElementById('success').style.display = 'none'
-
-        import { login, verify } from '/assets/auth?ext=js';
-    
-        const btn = document.getElementById('btn');
-        const mail = document.getElementById('mail');
-        const passwd = document.getElementById('passwd');
-    
-        btn.addEventListener('click', async (event) => {
-
-            event.preventDefault(); 
-
-            // afficher le loader
-            document.getElementById('conect').style.display = 'none';
-            document.getElementById('loader').style.display = 'flex';
-
-            try {
-
-                const Login = await new login(mail.value, passwd.value); // Attendre la réponse de login()
-                let client = Login.response;
-
-                if (!client.error) {
-
-                    const Verify = await new verify(); // Attendre la vérification
-                    let client = Verify.response
-                    
-                    if (!client.user_info.banned) {
-                        document.getElementById('loader').style.display = 'none';
-                        document.getElementById('success').style.display = 'flex';
-                        setTimeout(function() { window.location.href = '/' }, 2000);
-                        
-                    } else {
-                        console.log('Erreur :', client.message);
-                    }
-                } else {
-                    console.log('Erreur :', client.message);
-                }
-
-            } catch (err) {
-                alert('Une erreur est survenue : ' + err.message);
-                console.error(err);
-            }
-        });
-        
-    </script>
 
 </html>
 
