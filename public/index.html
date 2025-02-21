@@ -98,7 +98,7 @@
     </head>
 
     <body id="body">
-        
+                
         <header>
 
             <div>
@@ -106,7 +106,7 @@
                 <h2 class="titleh2">Silverdium</h2>
             </div>
 
-            <nav style="z-index: 100;">
+            <nav>
 
                 <ul>
                     <li><a href="#body">Accueil</a></li>
@@ -118,31 +118,37 @@
 
             </nav>
 
-            <div id="account_ul">
+            <nav id="account_ul">
 
                 <div class="auth_nav">
+
                     <ul style="display: flex; flex-direction: row;">
                         <li><a href="/login">Connection</a></li>
                         <li><a href="/register">Inscription</a></li>
                     </ul>
+
                 </div>
 
+
                 <div class="auth_profile">
+
                     <ul style="display: flex; flex-direction: row;">
                         <li><canvas id="face_skin"></canvas></li>
                         <li class="dropdown">
                             <a href="#" id="auth_name">Nom d'utilisateur</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
+                                <li><a href="/profile">Profile</a></li>
+                                <li><a href="/skin">Mon skin</a></li>
+                                <li id="admin"><a href="/admin">Panel admin</a></li>
                                 <li><a id="logout">Déconnexion</a></li>
                             </ul>
                         </li>
                     </ul>
+
                 </div>
                 
 
-            </div> 
+            </nav> 
              
         </header>
         
