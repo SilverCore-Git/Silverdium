@@ -59,7 +59,7 @@ async function connect() {
             
             if (!client.user_info.banned) {
                 open('success');
-                setTimeout(function() { window.location.href = '/' }, 3000);
+                setTimeout(function() { window.location.href = '/' }, 1500);
                 
             } else {
                 salert('SilverAuth', "Une erreur est survenue lors de la connection :<br>tu est banni des service Silver", 'error');

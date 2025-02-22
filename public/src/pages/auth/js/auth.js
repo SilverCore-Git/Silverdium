@@ -50,3 +50,18 @@ export  function logout() {
       .catch(error => ({ error: true, message: error.message }));
 
 }
+
+
+export function update_skin(file) {
+
+  return fetch(`${url}?az=update_skin&filename=${file}&key=${api_key}`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => data)
+  .catch(error => ({ error: true, message: error.message }));
+
+}

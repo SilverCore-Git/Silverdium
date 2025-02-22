@@ -122,14 +122,14 @@
                 <div class="auth_profile">
 
                     <ul style="display: flex; flex-direction: row;">
-                        <li><canvas id="face_skin"></canvas></li>
+                        <li><img id="face_skin"></li>
                         <li class="dropdown">
                             <a style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/profile">Profile</a></li>
-                                <li><a href="/skin">Mon skin</a></li>
-                                <li id="auth_profile_admin"><a href="/admin">Panel admin</a></li>
-                                <li><a id="logout">Déconnexion</a></li>
+                                <li><a href="/user/profile"><i class="bi bi-person-circle"></i>Profile</a></li>
+                                <li><a href="/user/skin"><i class="bi bi-pencil"></i>Mon skin</a></li>
+                                <li id="auth_profile_admin"><a href="/admin"><i class="bi bi-gear"></i>Panel admin</a></li>
+                                <li><style>#logout:hover { color: red; }</style><a id="logout"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
                             </ul>
                         </li>
                     </ul>

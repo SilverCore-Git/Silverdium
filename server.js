@@ -69,6 +69,7 @@ app.get('/register', (req, res) => { res.redirect('http://api.dium.silverdium.fr
 app.get('/auth', (req, res) => { res.redirect('/login') });
 
 app.get('/user/:file', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `${req.params.file}.html`) ) });
+app.get('/user/skin', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/skin-api') })
 
 // redirection des fichier bots dans racines
 app.get('/robots.txt', (req, res) => { res.redirect('/robots.txt') });
@@ -234,6 +235,16 @@ app.get('/api/auth', (req, res) => {
         azAuth.logout({ access_token: Big_token }).then(response => res.json(response));
 
       }
+
+        // Update skin
+      else if (action === 'update_skin') {
+
+        const Big_token = req.cookies.big_token;
+
+        azAuth.updateSkin(Big_token, req.query.filename).then(response => res.json(response));
+
+      }
+
 
       else {
         res.json({

@@ -4,8 +4,7 @@
  * @author MisterPapaye 
 **/
 
-import { verify, logout } from "/src/pages/auth/js/auth.js";
-import { skin2D } from "/src/assets/js/skin/skin2D.js";
+import { verify } from "/src/pages/auth/js/auth.js";
 
 const Logout = document.getElementById('logout')
 
@@ -29,20 +28,7 @@ async function check() {
     }
     else {
 
-        let skin = await new skin2D().creatHeadTexture(client.skin.base64);
-
-        const canvas = document.getElementById('face_skin');
-        const ctx = canvas.getContext('2d');
-
-        const img = new Image();
-        
-        img.onload = function() {
-
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height); 
-        };
-
-        img.src = skin;
-
+        document.getElementById('face_skin').src = `http://api.dium.silverdium.fr:54/index.php/api/skin-api/avatars/face/${client.response.name}`
         document.getElementById('auth_name').innerHTML = client.response.name + '<d class="arow">⮜</d>';
         document.getElementsByClassName('auth_profile')[0].style.display = 'flex';
 

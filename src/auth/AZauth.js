@@ -8,6 +8,7 @@ import nodeFetch from 'node-fetch';
 
 export default class AZauth {
     constructor(baseUrl) {
+        this.host = baseUrl
         this.url = `${baseUrl}/api/auth`;
         this.skinAPI = `${baseUrl}/api/skin-api/skins`;
     }
@@ -131,4 +132,34 @@ export default class AZauth {
             base64: "data:image/png;base64," + response.toString('base64'),
         }
     }
+
+
+    /**
+     * Mise a jours du skin !
+     */
+    async updateSkin(accessToken, skinFile) {
+        try {
+            const formData = new FormData();
+            formData.append("access_token", accessToken);
+            formData.append("skin", skinFile);
+    
+            const response = await fetch(`${this.host}/api/skins/update_skin`, {
+                method: "POST",
+                body: formData
+            });
+    
+            const data = await response.json();
+    
+            if (!response.ok) {
+                throw new Error(data.message || "Erreur lors de la mise à jour du skin");
+            }
+    
+            console.log("Skin mis à jour avec succès !", data);
+            return { success: true, message: "Skin mis à jour avec succès", data };
+        } catch (error) {
+            console.error("Erreur:", error);
+            return { error: true, message: error.message || "Échec de la mise à jour du skin" };
+        }
+    }
+
 }

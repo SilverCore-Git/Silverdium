@@ -36,6 +36,7 @@
 
 
 
+
 /* profile info !! */
 .card {
 
@@ -58,60 +59,40 @@
 
 .info img {
     border-radius: 15px;
-    width: 12rem;
+    width: 24rem;
     height: auto;
+    margin-top: 20px;
 }
 
-/* From Uiverse.io by vikiWayne */ 
-.perso_btn {
-    padding: 1em 2em;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #2c9caf;
-    transition: all 1000ms;
-    font-size: 15px;
+.user_skin_update_btn {
+  background-color: rgba(47, 167, 175, 0.466);
+  padding: 8px 10px 8px 10px;
+  border-radius: 10px;
+}
+
+
+/* From Uiverse.io by Navarog21 */ 
+.skin_maj_btn {
+    margin-top: 20px;
+
+    width: 10em;
     position: relative;
-    overflow: hidden;
-    outline: 2px solid #2c9caf;
+    height: 3.5em;
+    border: 3px ridge #149CEA;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
   }
   
-  .perso_btn:hover {
-    color: #ffffff;
-    transform: scale(1.1);
-    outline: 2px solid #70bdca;
-    box-shadow: 4px 5px 17px -4px #268391;
-  }
-  
-  .perso_btn::before {
-    content: "";
-    position: absolute;
-    left: -50px;
-    top: 0;
-    width: 0;
-    height: 100%;
-    background-color: #2c9caf;
-    transform: skewX(45deg);
-    z-index: -1;
-    transition: width 1000ms;
-  }
-  
-  .perso_btn:hover::before {
-    width: 250%;
-  }
+  .skin_maj_btn:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
+  }  
 
-  .perso_btn:active {
-    transform: scale(0.98);
+  .skin_maj_btn:active {
+    transform: scale(0.90);
   }
-  
-
-#user_role_name {
-    padding: 8px 8px 8px 10px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-size: 0.90rem;
-    background-color: #00FFFF;
-}

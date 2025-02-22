@@ -84,7 +84,8 @@
 
 
         <!-- Page style -->
-        <link rel="stylesheet" href="/src/assets/css/pages/rejoindre-silverdium/hero.css">
+        <link rel="stylesheet" href="/src/pages/user/profile.css">
+        <link rel="stylesheet" href="/src/assets/css/pages/login/loader.css">
         <style>
             body {
                 font-family: Arial, Helvetica, sans-serif;
@@ -117,7 +118,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('/src/assets/img/profile_background.jpg');
+                background-image: url('/src/assets/img/profile_background.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -128,14 +129,14 @@
         </style>
 
         <!-- page scripts -->
-
+        <script src="/src/pages/user/profile.js" type="module"></script>
 
 
         <title>Mon profile | Serveur Minecraft "PVP - FACTION - MODEE" unique en son genre</title>
 
     </head>
 
-    <body>
+    <body style="overflow: hidden;">
         
         <header>
 
@@ -171,14 +172,14 @@
                 <div class="auth_profile">
 
                     <ul style="display: flex; flex-direction: row;">
-                        <li><canvas id="face_skin"></canvas></li>
+                        <li><img id="face_skin"></li>
                         <li class="dropdown">
                             <a style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/profile">Profile</a></li>
-                                <li><a href="/skin">Mon skin</a></li>
-                                <li id="auth_profile_admin"><a href="/admin">Panel admin</a></li>
-                                <li><a id="logout">Déconnexion</a></li>
+                                <li><a href="/user/profile"><i class="bi bi-person-circle"></i>Profile</a></li>
+                                <li><a href="/user/skin"><i class="bi bi-pencil"></i>Mon skin</a></li>
+                                <li id="auth_profile_admin"><a href="/admin"><i class="bi bi-gear"></i>Panel admin</a></li>
+                                <li><style>#logout:hover { color: red; }</style><a id="logout"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -196,7 +197,61 @@
 
             <h1><strong>mon profile</strong></h1>
 
-            <
+            <section id="info" class="info">
+
+                <div class="card" style=" width: 65rem; height: 18rem; display: flex; flex-direction: row; align-items: center;">
+
+                    <div style="margin: 2rem 2rem 2rem 2rem; display: flex; flex-direction: row;">
+                     
+                        <div style="display: flex; flex-direction: column">
+
+                            <img id="user_image">
+
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; text-align: left; margin-left: 20px; transform: translateY(-3rem);">
+
+                            <p>
+                                <h2 id="user_name" style="font-size: 2rem;">user name</h2>
+                                <div style="margin-bottom: 10px;" id="user_UUID">UUID : 123456789abcdefghij123456Oklm</div>
+                                <div style="margin-bottom: 10px;" id="user_email">email : fesfdsf@fdsfs.fds</div>
+                                <strong><div id="user_role_name">role name</div></strong>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div style="display: flex; justify-content: end; align-items: center; transform: translateX(50px);">
+                        <a href="http://api.dium.silverdium.fr:54/index.php/profile" target="_blank"><button class="perso_btn">Paramettre avancer</button></a>
+                    </div>
+
+                </div>
+ 
+            </section>
+
+
+            <section id="loader" style="justify-content: center; align-items: center; flex-direction: column; position: relative; top: 2rem;">
+                <div class="wifi-loader-contaner">
+                    <!-- From Uiverse.io by mobinkakei --> 
+                    <div id="wifi-loader">
+                        <svg class="circle-outer" viewBox="0 0 86 86">
+                            <circle class="back" cx="43" cy="43" r="40"></circle>
+                            <circle class="front" cx="43" cy="43" r="40"></circle>
+                            <circle class="new" cx="43" cy="43" r="40"></circle>
+                        </svg>
+                        <svg class="circle-middle" viewBox="0 0 60 60">
+                            <circle class="back" cx="30" cy="30" r="27"></circle>
+                            <circle class="front" cx="30" cy="30" r="27"></circle>
+                        </svg>
+                        <svg class="circle-inner" viewBox="0 0 34 34">
+                            <circle class="back" cx="17" cy="17" r="14"></circle>
+                            <circle class="front" cx="17" cy="17" r="14"></circle>
+                        </svg>
+                        <div class="text" data-text="Connection..."></div>
+                    </div>
+                </div>
+            </section>
 
 
         </main>

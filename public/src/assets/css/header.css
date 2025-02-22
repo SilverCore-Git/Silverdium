@@ -228,3 +228,9 @@ header div img {
 .auth_profile .dropdown:hover .arow {
     transform: rotate(-90deg);
 }
+
+.info canvas {
+    width: 11rem;
+    height: 11rem;
+    border-radius: 10px;
+}

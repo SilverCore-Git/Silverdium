@@ -1,0 +1,254 @@
+<!--
+ * @author Silvercore 
+ * @author Silverdium
+ * @author MisterPapaye
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <!-- meta divers -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="hostname" content="silverdium.fr">
+        <meta name="copyright" content="2024 - 2025 Silverdium | SilverCore">
+        <meta name="author" content="SilverCore | Silverdium | xzp4x | MisterPapaye">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#9316d3">
+
+        <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
+
+        <!-- meta SEO --> 
+        <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
+        <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta name="language" content="fr">
+        <meta name="geo.region" content="FR">
+        <meta name="googlebot" content="index, follow">
+        <meta name="rating" content="general">
+        <meta name="format-detection" content="telephone=no">
+
+        <!-- meta open graph -->
+        <meta property="og:title" content="Silverdium">
+        <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta property="og:image" content="https://api.silverdium.fr/img/dium/logo.png">
+        <meta property="og:site_name" content="Rejoindre - Silverdium - Minecraft">
+        <meta property="og:locale" content="fr_FR">
+
+    
+        <!-- SilverPopups -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
+        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script> -->
+ 
+        
+        <!-- Google Analytics  -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1S2EJD13P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-Y1S2EJD13P');
+        </script>
+
+        <!-- recaptcha for your security !! -->
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcSAs4qAAAAAC65G0pzxb3I5pQh9Na-l7oDaEF-"></script>
+
+
+
+        <!-- libs javascript -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+        <!-- libs css -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+        <!-- utils scripts -->
+        <script src="/src/assets/js/utils/loadblock.js" defer></script>
+        <script src="/assets/verify_auth?ext=js" type="module" defer></script>
+
+        <!-- patern -->
+        <link rel="stylesheet" href="/src/assets/css/patern/bluestyle.css">
+        <link rel="stylesheet" href="/src/assets/css/patern/purpelline.css">
+
+        <!-- Basic style -->
+        <!-- <link rel="stylesheet" href="/assets/body?ext=css"> -->
+        <link rel="stylesheet" href="/assets/header?ext=css">
+
+
+
+
+
+
+
+        <!-- Page style -->
+        <link rel="stylesheet" href="/src/pages/user/skin.css">
+        <link rel="stylesheet" href="/src/assets/css/pages/login/loader.css">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+
+                overflow-x: hidden;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; 
+                text-align: center;
+                align-content: center;
+
+                background: linear-gradient(
+                    120deg,
+                    #5f08b1,
+                    #c218b9,
+                    #b8119c,
+                    #c21054,
+                    #a74913
+                );
+                background-size: 400% 400%;
+                animation: gradient 20s ease infinite;
+            }
+
+            body::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('/src/assets/img/profile_background.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                filter: blur(1px);
+                z-index: -1;
+            }
+        </style>
+
+        <!-- page scripts -->
+        <script src="/src/pages/user/skin.js" type="module"></script>
+
+
+        <title>Mon profile | Serveur Minecraft "PVP - FACTION - MODEE" unique en son genre</title>
+
+    </head>
+
+    <body style="overflow: hidden;">
+        
+        <header>
+
+            <a href="/"><div>
+                <img src="https://api.silverdium.fr/img/dium/logo.png" alt="Logo">
+                <h2 class="titleh2">Silverdium</h2>
+            </div></a>
+
+            <nav class="nav">
+
+                <ul>
+                    <li><a href="/#body"><i class="bi bi-house-door"></i>Accueil</a></li>
+                    <li><a href="/go/tipeee"><i class="bi bi-heart-fill"></i>Faire un don</a></li>
+                    <li><a href="/go/rejoindre-silverdium"><i class="bi bi-arrow-down-circle"></i>Launcher</a></li>
+                    <li><a href="/#savoir"><i class="bi bi-question-circle"></i>En savoir plus</a></li>
+                    <li><a href="/go/discord"><i class="bi bi-discord"></i>Discord</a></li>
+                </ul>
+
+            </nav>
+
+            <nav id="account_ul">
+
+                <div class="auth_nav">
+
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><a href="/login"><i class="bi bi-key-fill"></i>Connection</a></li>
+                        <li><a href="/register">Inscription<i style="margin-right: 0; margin-left: 10px;" class="bi bi-person-plus-fill"></i></a></li>
+                    </ul>
+
+                </div>
+
+
+                <div class="auth_profile">
+
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><img id="face_skin"></li>
+                        <li class="dropdown">
+                            <a style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user/profile"><i class="bi bi-person-circle"></i>Profile</a></li>
+                                <li><a href="/user/skin"><i class="bi bi-pencil"></i>Mon skin</a></li>
+                                <li id="auth_profile_admin"><a href="/admin"><i class="bi bi-gear"></i>Panel admin</a></li>
+                                <li><style>#logout:hover { color: red; }</style><a id="logout"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                
+
+            </nav> 
+             
+        </header>
+        
+
+
+        <main class="hero">
+
+            <h1><strong>mon skin</strong></h1>
+
+            <section id="info" class="info">
+
+                <div class="card" style=" width: 37rem; height: 35rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+
+                    <div style="margin: 2rem 2rem 2rem 2rem; align-items: center; justify-content: center;">
+                     
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+                            <input type="file" id="file" class="user_skin_update_btn" >
+                            <img id="user_skin">
+                            <button id="skin_maj_btn" class="skin_maj_btn" style="color: black;">Metre a jours</button>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+ 
+            </section>
+
+
+            <section id="loader" style="justify-content: center; align-items: center; flex-direction: column; position: relative; top: 2rem;">
+                <div class="wifi-loader-contaner">
+                    <!-- From Uiverse.io by mobinkakei --> 
+                    <div id="wifi-loader">
+                        <svg class="circle-outer" viewBox="0 0 86 86">
+                            <circle class="back" cx="43" cy="43" r="40"></circle>
+                            <circle class="front" cx="43" cy="43" r="40"></circle>
+                            <circle class="new" cx="43" cy="43" r="40"></circle>
+                        </svg>
+                        <svg class="circle-middle" viewBox="0 0 60 60">
+                            <circle class="back" cx="30" cy="30" r="27"></circle>
+                            <circle class="front" cx="30" cy="30" r="27"></circle>
+                        </svg>
+                        <svg class="circle-inner" viewBox="0 0 34 34">
+                            <circle class="back" cx="17" cy="17" r="14"></circle>
+                            <circle class="front" cx="17" cy="17" r="14"></circle>
+                        </svg>
+                        <div class="text" data-text="Connection..."></div>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+
+
+        <div id="footer"></div>
+ 
+    </body>
+
+</html>
