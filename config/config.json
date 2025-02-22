@@ -18,6 +18,14 @@
             "devAces_mdp": "olalaLeGigaMDP",
             "devAces_id": "monemail@haaaaaaa.oh"
         }
+    },
+
+    "admin": {
+
+        "role_id": [
+            2
+        ]
+
     }
 
 }

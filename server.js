@@ -59,9 +59,18 @@ app.get('/jouer', (req, res) => { res.redirect('/go/rejoindre-silverdium') });
 app.get('/rejoindre-silverdium', (req, res) => { res.redirect('/go/rejoindre-silverdium') });
 
 // trash
-app.get('/login_form.html', (req, res) => {
-  res.sendFile(__dirname + '/public/src/pages/auth/login_form.html')
-})
+app.get('/api/config', (req, res) => { 
+
+  const key = req.query.key
+  const client = api.conect(key, false);
+
+  if (client) {
+
+    res.sendFile(__dirname + "/config/config.json")
+
+  }
+
+});
 
 // redirection des pages de auth
 app.get('/login', (req, res) => { res.sendFile(__dirname + "/public/src/pages/auth/login.html") });
@@ -73,25 +82,16 @@ app.get('/user/skin', (req, res) => { res.redirect('http://api.dium.silverdium.f
 
 // redirection des pages panel admin
 app.get('/admin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `index.html`)) })
+app.get('/admin/panel/:file', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', 'pages', `${req.params.file}.html`)) })
+app.get('/admin/verify/', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', 'auth', 'verify.js')) })
+app.get('/admin/assets', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `assets`, `admin.${req.query.q}`)) })
 
 // redirection des fichier bots dans racines
 app.get('/robots.txt', (req, res) => { res.redirect('/robots.txt') });
 app.get('/sitemap.xml', (req, res) => { res.redirect('/sitemap.xml') });
 app.get('/ads.txt', (req, res) => { res.redirect('/ads.txt') });
 
-// redirection du /local (supréssion 50% de la fonction car mauvaise secu + utilité? = toi)
-// app.get('/local', (req, res) => {
-//   const file = req.query.file
-//   const key = req.query.key
-//   const callapi = api.conect(key, false)
 
-//   if (callapi === true) {
-//     res.sendFile(path.join(__dirname, file))
-//   } else {
-//     res.json(callapi)
-//   }
-
-// })
 
 
 
