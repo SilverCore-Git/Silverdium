@@ -39,15 +39,22 @@ loader.style.display = 'none';
 
 
 const btn = document.getElementById('skin_maj_btn')
-const file = document.getElementById('file').files[0]
-
 
 async function ahhhhhhh() {
+
+    const fileInput = document.getElementById("file");
+    const file = fileInput.files[0];
+
 
     block.style.display = 'none';
     loader.style.display = 'flex';
 
-    const res = await new update_skin(file)
+    if (!file) {
+        console.log("Veuillez sélectionner un fichier.");
+        return;
+    }
+
+    const res = await update_skin(file)
 
     console.log(res)
 

@@ -68,8 +68,11 @@ app.get('/login', (req, res) => { res.sendFile(__dirname + "/public/src/pages/au
 app.get('/register', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/user/register') });
 app.get('/auth', (req, res) => { res.redirect('/login') });
 
-app.get('/user/:file', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `${req.params.file}.html`) ) });
+app.get('/user/profile', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `profile.html`) ) });
 app.get('/user/skin', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/skin-api') })
+
+// redirection des pages panel admin
+app.get('/admin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `index.html`)) })
 
 // redirection des fichier bots dans racines
 app.get('/robots.txt', (req, res) => { res.redirect('/robots.txt') });
@@ -236,15 +239,6 @@ app.get('/api/auth', (req, res) => {
 
       }
 
-        // Update skin
-      else if (action === 'update_skin') {
-
-        const Big_token = req.cookies.big_token;
-
-        azAuth.updateSkin(Big_token, req.query.filename).then(response => res.json(response));
-
-      }
-
 
       else {
         res.json({
@@ -257,6 +251,26 @@ app.get('/api/auth', (req, res) => {
   }
 
 })
+// app.post("/api/user/update_skin", (req, res) => {
+
+//   const key = req.query.key
+
+//   const client = api.conect(key, false);
+
+//   if (client) {
+
+//     if (!req.file || req.file.size === 0) {
+        
+//         res.status(400).json({ error: true, message: "Fichier non reçu ou vide." });
+
+//       }
+
+//       azAuth.updateSkin(req.file).then(res => res.json(res))
+
+//   }
+
+// });
+
 
 
 

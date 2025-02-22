@@ -52,16 +52,18 @@ export  function logout() {
 }
 
 
-export function update_skin(file) {
+export async function update_skin(file) {
 
-  return fetch(`${url}?az=update_skin&filename=${file}&key=${api_key}`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => data)
-  .catch(error => ({ error: true, message: error.message }));
+  const formData = new FormData();
+  formData.append("skin", file);
+
+  return fetch(`/api/user/update_skin?key=${api_key}`, {
+    method: "POST",
+    body: formData
+  });
+
+  const res = await response.json();
+
+  return res
 
 }

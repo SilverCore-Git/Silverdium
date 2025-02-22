@@ -4,7 +4,7 @@
  * @author MisterPapaye 
 **/
 
-import { verify } from "/src/pages/auth/js/auth.js";
+import { verify, logout } from "/src/pages/auth/js/auth.js";
 
 const Logout = document.getElementById('logout')
 

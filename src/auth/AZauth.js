@@ -143,16 +143,16 @@ export default class AZauth {
             formData.append("access_token", accessToken);
             formData.append("skin", skinFile);
     
-            const response = await fetch(`${this.host}/api/skins/update_skin`, {
+            const response = await nodeFetch(`https://corsproxy.io/?url=${this.host}/api/skins/update_skin`, {
                 method: "POST",
                 body: formData
             });
     
-            const data = await response.json();
-    
-            if (!response.ok) {
-                throw new Error(data.message || "Erreur lors de la mise à jour du skin");
-            }
+            return response
+
+            // if (!response.ok) {
+            //     throw new Error(data.message || "Erreur lors de la mise à jour du skin");
+            // }
     
             console.log("Skin mis à jour avec succès !", data);
             return { success: true, message: "Skin mis à jour avec succès", data };
