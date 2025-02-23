@@ -5,7 +5,10 @@
  */
 
 
-export default class api {
+class api {
+    constructor(c) {
+        this.c = c
+    }
 
     async KEY_INFO(api_key) {
         try {
@@ -53,3 +56,5 @@ export default class api {
     }
 
 }
+
+module.exports = api

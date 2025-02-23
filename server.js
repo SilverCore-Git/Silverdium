@@ -18,9 +18,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 // libs
-const Api = require('./src/api/client.js').default;
-const api = new Api();
-const AZauth = require('./src/auth/AZauth.js').default;
+const Api = require('./src/api/client.js');
+const api = new Api('c');
+const AZauth = require('./src/auth/AZauth.js');
 const azAuth = new AZauth("http://api.dium.silverdium.fr:54/index.php");
 
 // API config / data

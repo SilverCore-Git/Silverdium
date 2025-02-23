@@ -4,11 +4,11 @@
  * @author MisterPapaye
  */
 
-import nodeFetch from 'node-fetch';
+const nodeFetch = require('node-fetch');
 
-export default class AZauth {
+class AZauth {
     constructor(baseUrl) {
-        this.host = baseUrl
+        this.host = baseUrl;
         this.url = `${baseUrl}/api/auth`;
         this.skinAPI = `${baseUrl}/api/skin-api/skins`;
     }
@@ -135,7 +135,7 @@ export default class AZauth {
 
 
     /**
-     * Mise a jours du skin !
+     * Mise à jour du skin !
      */
     async updateSkin(accessToken, skinFile) {
         try {
@@ -148,7 +148,7 @@ export default class AZauth {
                 body: formData
             });
     
-            return response
+            return response;
 
             // if (!response.ok) {
             //     throw new Error(data.message || "Erreur lors de la mise à jour du skin");
@@ -163,3 +163,5 @@ export default class AZauth {
     }
 
 }
+
+module.exports = AZauth;
