@@ -30,7 +30,7 @@ if (client.error) {
 } 
 else {
 
-    document.getElementById('user_skin').src = `http://api.dium.silverdium.fr:54/index.php/api/skin-api/skins/${client.name}`
+    document.getElementById('user_skin').src = `/api/proxy?http=http://api.dium.silverdium.fr:54/skin3d/3d-api/premium/${client.name}&key=ce4693ea4cb18818f107a20cf89f26ab`
 
     block.style.display = 'flex';
 loader.style.display = 'none';
@@ -65,6 +65,7 @@ async function ahhhhhhh() {
 
 btn.addEventListener("click", () => {
 
-    ahhhhhhh();
+    // ahhhhhhh();
+    window.location.href = 'http://api.dium.silverdium.fr:54/skin-api'
 
 })

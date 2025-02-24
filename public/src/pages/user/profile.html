@@ -123,7 +123,7 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
-                filter: blur(1px);
+                filter: blur(1px) saturate(1.3);
                 z-index: -1;
             }
         </style>
@@ -205,7 +205,7 @@
                      
                         <div style="display: flex; flex-direction: column">
 
-                            <img id="user_image">
+                            <img class="img-thumbnail" id="user_image">
 
                         </div>
 
@@ -223,7 +223,7 @@
                     </div>
 
                     <div style="display: flex; justify-content: end; align-items: center; transform: translateX(50px);">
-                        <a href="http://api.dium.silverdium.fr:54/index.php/profile" target="_blank"><button class="perso_btn">Paramettre avancer</button></a>
+                        <a href="http://api.dium.silverdium.fr:54/profile" target="_blank"><button class="perso_btn">Paramettre avancer</button></a>
                     </div>
 
                 </div>

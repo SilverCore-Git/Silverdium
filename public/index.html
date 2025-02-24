@@ -22,8 +22,8 @@
         <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
 
         <!-- meta SEO -->
-        <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
-        <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta name="keywords" content="minecraft, modée, moddé, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
+        <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta name="language" content="fr">
         <meta name="geo.region" content="FR">
         <meta name="googlebot" content="index, follow">
@@ -32,7 +32,7 @@
 
         <!-- meta open graph -->
         <meta property="og:title" content="Silverdium">
-        <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
+        <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta property="og:image" content="https://api.silverdium.fr/img/dium/logo.png">
         <meta property="og:site_name" content="Accueil - Silverdium - Minecraft">
         <meta property="og:locale" content="fr_FR">
@@ -41,11 +41,10 @@
         <!-- SilverPopups -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://corsproxy.io/https://t.silverdium.fr/popup.js" type="module"></script>
-        <script src="https://corsproxy.io/https://t.silverdium.fr/popups.js" type="module"></script>
 
         
         <!-- Google Analytics  -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1S2EJD13P"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1S2EJD13P" defer></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -55,21 +54,26 @@
         </script>
 
         <!-- recaptcha for your security !! -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6LcSAs4qAAAAAC65G0pzxb3I5pQh9Na-l7oDaEF-"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcSAs4qAAAAAC65G0pzxb3I5pQh9Na-l7oDaEF-" defer></script>
 
 
 
         <!-- libs javascript -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
         <!-- libs css -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous" defer></script>
+
 
         <!-- utils scripts -->
-        <script src="/src/assets/js/utils/loadblock.js" defer></script>
+        <script src="/src/assets/js/utils/loadblock.js"></script>
         <script src="/assets/verify_auth?ext=js" type="module"></script>
 
         <!-- patern -->
@@ -93,7 +97,7 @@
 
 
 
-        <title>Accueil - Silverdium | Serveur Minecraft "PVP - FACTION - MODEE" unique en son genre</title>
+        <title>Accueil - Silverdium | Serveur Minecraft "PVP - FACTION - MODDE" unique en son genre</title>
 
     </head>
 
@@ -108,13 +112,27 @@
 
             <nav class="nav">
 
-                <ul>
+                <span id="menu-toggle" class="bi bi-list"></span>
+                <ul id="ul">
                     <li><a href="#body"><i class="bi bi-house-door"></i>Accueil</a></li>
                     <li><a href="/go/tipeee"><i class="bi bi-heart-fill"></i>Faire un don</a></li>
                     <li><a href="/go/rejoindre-silverdium"><i class="bi bi-arrow-down-circle"></i>Launcher</a></li>
                     <li><a href="#savoir"><i class="bi bi-question-circle"></i>En savoir plus</a></li>
                     <li><a href="/go/discord"><i class="bi bi-discord"></i>Discord</a></li>
                 </ul>
+
+                <script defer>
+                    const menu = document.getElementById("menu-toggle")
+                    
+                    menu.addEventListener("click",() => {
+                        
+                        const ul = document.getElementById("ul");
+                        
+                        if (ul.style.display === 'flex') { ul.style.display = 'none'; menu.style.transform = 'rotate(0deg)' }
+                        else { ul.style.display = 'flex'; menu.style.transform = 'rotate(90deg)' }
+
+                    });
+                </script>
 
             </nav>
 
@@ -133,14 +151,15 @@
                 <div class="auth_profile">
 
                     <ul style="display: flex; flex-direction: row;">
-                        <li><img id="face_skin"></li>
-                        <li class="dropdown">
-                            <a style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
+                        <li><a href="https://youtu.be/dQw4w9WgXcQ"><img id="face_skin"></a></li>
+                        <li class="dropdown nav-item">
+                            <a class="nav-link dropdown-toggle" style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/user/profile"><i class="bi bi-person-circle"></i>Profile</a></li>
-                                <li><a href="/user/skin"><i class="bi bi-pencil"></i>Mon skin</a></li>
-                                <li id="auth_profile_admin"><a href="/admin"><i class="bi bi-gear"></i>Panel admin</a></li>
-                                <li><style>#logout:hover { color: red; }</style><a id="logout"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
+                                <li><a class="dropdown-item" href="/user/profile"><i class="bi bi-person-circle"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="/user/skin"><i class="bi bi-pencil"></i>Mon skin</a></li>
+                                <li style="margin-bottom: -15px;" id="auth_profile_admin"><a class="dropdown-item" href="/admin"><i class="bi bi-gear"></i>Panel admin</a></li>
+                                <li><hr style="color: white;" class="dropdown-divider"></li>
+                                <li style="margin-top: -15px;"><style>#logout:hover { color: red; }</style><a class="dropdown-item" id="logout"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -155,11 +174,11 @@
 
         <main class="hero">
 
-            <h1><strong> BIENVENUE SUR SIVLERDIUM </strong></h1>
+            <h1><strong> BIENVENUE SUR SIlvERDIUM </strong></h1>
 
             <strong class="text">
                 Serveur Minecraft 
-                <br>PVP - Faction - Modée
+                <br>PVP - Faction - Moddé
             </strong>
             
             <div class="hero_btn">
@@ -194,29 +213,75 @@
                 },
               });
             });
-        </script>          
+        </script>
+
 
         <section class="quisommesnous">
 
             <div style="position: relative; top: 0;" id="savoir"></div>
-            <h2>Qui sommes nous ?</h2>
-            <p>
-                    Un texte, c'est un assemblage de mots, de phrases et de paragraphes qui, ensemble, 
-                cherchent à transmettre une idée, une histoire, ou une émotion. Pourtant, en tant que texte, 
-                il est aussi bien plus qu'une simple collection de caractères. Un texte vit à travers les yeux de celui qui le lit, 
-                se déploie dans l'imaginaire, se nourrit des interprétations et des perceptions de chacun. Il est une réflexion de son créateur, 
-                mais il devient aussi un miroir des lecteurs. Un texte ne peut exister sans celui qui le lit et l'interprète. Il est, d'une certaine manière, 
-                une création éternellement inachevée, toujours susceptible de se réinventer à chaque lecture.
-                Être un texte, c'est être à la fois une entité figée sur une page ou un écran, mais aussi une expérience vivante. 
-                Il peut susciter des questionnements, des réflexions, des émotions. Il est une forme d'art discrète, mais puissante, 
-                un moyen d'exprimer ce qui ne peut être dit autrement. Et pourtant, un texte, même riche de sens, ne peut rien sans les mots.
-                Ces mots qui, ensemble, donnent à l'idée une forme, à l'émotion une voix. C'est là toute la magie du texte : 
-                il est à la fois forme et contenu, porteur et vecteur, à la fois ici et ailleurs.
-                Ainsi, être un texte, c'est être une infinité d'interprétations possibles, un terrain de jeu où les mots dansent selon les règles du lecteur. 
-                C'est l'illustration parfaite de ce qu'est une pensée : fluide, en perpétuelle évolution, mais toujours gravée quelque part.
-            </p>
+
+            <div class="card">
+
+                <div class="container">
+
+
+                    <div class="section">
+
+                        <div onclick="silvercore()" class="img-top">
+                            <img src="https://api.silverdium.fr/img/core/logo.png" alt="logo silvercore">
+                        </div>
+
+                        <div class="section-content">
+                            <h2>Qui sommes-nous ?</h2>
+                            <p>
+                                <strong style="margin-left: 1rem;">Silverdium</strong> est un serveur Minecraft unique en son genre, offrant un gameplay <strong>PVP - FACTION - MODDÉ</strong> 
+                                pour une expérience d'aventure immersive et de redécouverte du magnifique jeux Minecraft. 🚀✨
+                                <br style="margin-bottom: 10px;">
+                                <strong style="margin-left: 1rem;"></strong>Créé par <a style="color: initial; text-decoration: underline;" href="https://core.silverdium.fr"><strong>SilverCore</strong></a>, 
+                                une organisation qui propose plusieurs services pour <strong>faciliter votre quotidien</strong> et améliorer votre expérience comme SilverTransfer ou SilverQR. 💡
+                                <br>
+                                Tout cela dans le respect d'une <strong>politique éthique, respectueuse de la vie privée et open source</strong> ! 🔒🌍
+                            </p>
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div class="section">
+
+                        <div class="section-content">
+                            <h2>Plus d'information !</h2>
+                            <p>
+                                <strong style="margin-left: 1rem;">Silverdium</strong>, comporte près de 70 mods pour des terrains extraordinaires ! 🌍✨ 
+                                De plus, les équipes de <strong>SilverCore</strong> travaillent activement sur un futur <strong>SilverMod</strong> pour rendre ce serveur encore plus unique. 🚀
+                                <br>
+                                Pour suivre l'actualité et rencontrer la communauté de Silverdium, rejoins-nous sur le <a style="color: initial; text-decoration: underline;" href="https://core.silverdium.fr"><strong>Discord</strong></a> ! 💬
+                                <br style="margin-bottom: 10px;">
+                                <strong style="margin-left: 1rem;">Tu peux nous aider !</strong> 🙌
+                                Sur le <a style="color: initial; text-decoration: underline;" href="/go/tipeee"><strong>Tipeee</strong></a> de SilverCore, tu peux contribuer à la réalisation des projets Silver et au développement de Silverdium MC. 🎮
+                                Pour rester informé, tu peux nous suivre sur les réseaux sociaux ! 📱
+                            </p>
+                            
+                        </div>
+
+                        <div onclick="links()" class="img-bottom">
+                            <img src="https://api.silverdium.fr/img/dium/logo.png" alt="logo silverdium">
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
 
         </section>
+
+        <script defer>
+            function silvercore() { window.location.href = 'https://core.silverdium.fr'; }
+            function links() { window.location.href = 'https://link.silverdium.fr'; }
+        </script>
 
 
         <div id="footer"></div>

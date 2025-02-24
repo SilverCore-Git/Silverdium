@@ -32,7 +32,13 @@
     animation: glow 1.5s infinite alternate ease-in-out;
 }
 
-
+#user_skin {
+  height: 221px;
+  width: 319px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
 
 
 

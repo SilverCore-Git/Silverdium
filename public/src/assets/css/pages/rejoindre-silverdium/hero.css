@@ -23,6 +23,7 @@
 }
 
 .hero h1 {
+    font-family: "Black Han Sans", "Archivo Black", sans-serif;
     font-family: Stencil Std, fantasy;
     color: #00FFFF;
     font-size: 3.5rem;

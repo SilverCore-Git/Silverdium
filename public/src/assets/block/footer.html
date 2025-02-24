@@ -4,172 +4,136 @@
     <div class="footer-container">
     
       <div class="footer-section about">
-        <h3>À propos</h3>
-        <p>
-          Nous sommes une entreprise dédiée à offrir des solutions in
-          arantir une expérience exceptionnelle.
+        <h3><i class="bi bi-info-circle"></i> À propos</h3>
+        <p style="text-align: justify;">
+          Silverdium est un serveur Minecraft unique en son genre, 
+          offrant un gameplay PVP - FACTION - MODDÉ pour une expérience d'aventure 
+          immersive et de redécouverte du magnifique jeu Minecraft. <i>(By SilverCore)</i>
         </p>
       </div>
       
       <div class="footer-section services">
-        <h3>Site map</h3>
+        <h3><i class="bi bi-map"></i> Site map</h3>
         <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/go/tipeee">Faire un don</a></li>
-          <li><a href="/go/rejoindre-silverdium">Launcher</a></li>
-          <li><a href="/#savoir">En savoir plus</a></li>
-          <li><a href="/go/discord">Discord</a></li>
+          <li><a href="/"><i class="bi bi-house-door"></i> Accueil</a></li>
+          <li><a href="/go/tipeee"><i class="bi bi-heart"></i> Faire un don</a></li>
+          <li><a href="/go/rejoindre-silverdium"><i class="bi bi-download"></i> Launcher</a></li>
+          <li><a href="/#savoir"><i class="bi bi-book"></i> En savoir plus</a></li>
+          <li><a href="/go/discord"><i class="bi bi-discord"></i> Discord</a></li>
         </ul>
       </div>
       
       <div class="footer-section contact">
-        <h3>Vous Pouvez<br>nous aider</h3>
-        <ul>
-          <li><a href="/go/tipeee">Tipeee.com</a></li>
-          <li><a href="/market">Boutuque</a></li>
-          <li><a href="/go/discord">Discord</a></li>
-        </ul>
+
+        <h3><i class="bi bi-award"></i> Crédits</h3>
+
+        <table style="width: 80%; margin: auto; font-size: 0.9rem;">
+
+          <tr>
+            <th style="background: #ffffff1a; text-transform: uppercase;"><i class="bi bi-code-slash"></i> Développeurs</th>
+          </tr>
+          <tr>
+            <td><a><i class="bi bi-person-circle"></i> MisterPapaye</a></td>
+          </tr>
+          <tr>
+            <td><a><i class="bi bi-person-circle"></i> xzp4x</a></td>
+          </tr>
+
+          <tr>
+            <th style="background: #ffffff1a; text-transform: uppercase;"><i class="bi bi-camera"></i> Photos</th>
+          </tr>
+          <tr>
+            <td><a><i class="bi bi-image"></i> @chatonlaveur_</a></td>
+          </tr>
+
+        </table>
+
       </div>
       
       <div class="footer-section social-media">
-
-        <h3 style="font-size: 1.8rem; margin-bottom: 25px;">Suivez-nous</h3>
+        <h3><i class="bi bi-share"></i> Suivez-nous</h3>
         <div class="social-icons">
           <a href="/re?direct=discord" class="social-icon"><i class="bi bi-discord icon-dscrd"></i></a>
           <a href="/re?direct=tiktok" class="social-icon"><i class="bi bi-tiktok icon-tiktok"></i></a>
           <a href="/re?direct=insta" class="social-icon"><i class="bi bi-instagram icon-insta"></i></a>
           <a href="/re?direct=youtube" class="social-icon"><i class="bi bi-youtube icon-youtube"></i></a>
-          <a href="https://github.com/SilverCore-Git/silverdium" class="social-icon icon-github"><i class="bi bi-github"></i></a>
+          <a href="https://github.com/SilverCore-Git/silverdium" class="social-icon"><i class="bi bi-github icon-github"></i></a>
         </div>
 
-        <div class="social-icons">
+        <div style="margin-top: 20px;" class="social-icons">
           <a href="https://core.silverdium.fr"><img class="social-img" src="https://api.silverdium.fr/img/core/logo.png"></a>
           <a href="https://transfer.silverdium.fr"><img class="social-img" src="https://t.silverdium.fr/logoST.png"></a>
           <a href="https://silverdium.fr"><img class="social-img" src="https://api.silverdium.fr/img/dium/logo.png"></a>
         </div>
 
       </div>
-    
     </div>
   
     <div class="footer-bottom">
       <p>&copy; 2024 - 2025 | Silvercore - Silverdium | Tous droits réservés</p>
     </div>
   </footer>
-
   
-
   <style>
+  /* Footer Styling */
+  footer {
+    background: linear-gradient(45deg, #5f08b1, #dd3416, #b61862, #5f08b1 );
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 
-/* Footer */
-footer {
-  background: linear-gradient(45deg, #5f08b1, #dd3416, #b61862, #5f08b1 );
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
-  padding: 40px 0;
-  margin: 0;
-  position: relative;
-  left: 0pc;
-  width: 120rem;
-  height: auto;
-  box-sizing: border-box;
-}
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+  }
 
-.footer-container {
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 0 20px;
-}
+  .footer-section h3 {
+    font-size: 1.8rem;
+  }
 
-.footer-section {
-  flex: 1;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  flex-direction: column;
-}
-.services {
-  display: flex;
-}
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
 
-.footer-section h3 {
-  color: #ecf0f1;
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
+  .footer-section li {
+    margin: 8px 0;
+  }
 
-.footer-section p, .footer-section ul {
-  font-size: 0.95rem;
-}
+  .footer-section a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
 
-.footer-section ul {
-  list-style: none;
-  padding-left: 0;
-}
+  .footer-section a:hover {
+    color: #f1c40f;
+  }
 
-.footer-section a {
-  color: #ecf0f1;
-  text-decoration: none;
-}
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
 
-.footer-section a:hover {
-  text-decoration: underline;
-}
+  th, td {
+    border: 1px solid #fff;
+    padding: 8px;
+    text-align: center;
+  }
 
-.about p {
-  text-align: justify;
-  max-width: 300px;
-}
-
-.footer-bottom {
-  text-align: center;
-}
-
-.footer-bottom p {
-  font-size: 1.2rem;
-  color: #ffffff;
-}
-
-/* Réseaux sociaux */
-.social-media {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-}
-
-.social-icons {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.social-icon {
-  font-size: 1.8rem;
-  color: #ecf0f1;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.social-icon:hover {
-  transform: scale(1.1);
-  color: #ffffff
-}
-
-
-.icon-dscrd { transition: all 0.3s; }
-.icon-dscrd:hover { color: #5f5df2; }
-.icon-tiktok { transition: all 0.3s; }
-.icon-tiktok:hover { color: #000000; }
-.icon-insta { transition: all 0.3s; }
-.icon-insta:hover { color: #c216b9; }
-.icon-youtube { transition: all 0.3s; }
-.icon-youtube:hover { color: #ff0808; }
-.icon-github { transition: all 0.3s; }
-.icon-github:hover { color: #000000; }
+  .footer-bottom {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
 
 .social-img {
   width: 3rem;
@@ -182,130 +146,9 @@ footer {
   transform: scale(1.1);
 }
 
-/* Bootstrap Icons */
-@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css');
+.social-icon {
+  font-size: 2rem;
 
-
-@media (max-width: 1750px) {
-  footer {
-    width: 110rem;
-  }
+  transition: all 0.4s;
 }
-@media (max-width: 1650px) {
-  footer {
-    width: 100rem;
-  }
-}
-@media (max-width: 1490px) {
-  footer {
-    width: 95rem;
-  }
-}
-@media (max-width: 1450px) {
-  footer {
-    width: 90rem;
-  }
-}
-@media (max-width: 1400px) {
-  footer {
-    width: 85rem;
-  }
-}
-@media (max-width: 1300px) {
-  footer {
-    width: 80rem;
-  }
-}
-@media (max-width: 1230px) {
-  footer {
-    width: 76rem;
-  }
-}
-@media (max-width: 1100px) {
-  footer {
-    width: 74rem;
-  }
-}
-@media (max-width: 1150px) {
-  footer {
-    width: 72rem;
-  }
-}
-@media (max-width: 1090px) {
-  footer {
-    width: 70rem;
-  }
-}
-@media (max-width: 1050px) {
-  footer {
-    width: 65rem;
-  }
-}
-@media (max-width: 1018px) {
-  footer {
-    width: 63rem;
-  }
-}
-@media (max-width: 990px) {
-  footer {
-    width: 61rem;
-  }
-}
-@media (max-width: 960px) {
-  footer {
-    width: 58rem;
-  }
-}
-@media (max-width: 880px) {
-  footer {
-    width: 54rem;
-  }
-}
-@media (max-width: 830px) {
-  .footer-section {
-    display: none;
-  }
-  footer {
-    margin-top: 100px;
-  }
-}
-@media (max-width: 830px) {
-  .footer-section {
-    display: none;
-  }
-  footer {
-    margin-top: 100px;
-  }
-}
-@media (max-width: 750px) {
-  footer {
-    margin-top: 200px;
-  }
-}
-@media (max-width: 700px) {
-  footer {
-    margin-top: 300px;
-  }
-}
-@media (max-width: 650px) {
-  footer {
-    margin-top: 400px;
-  }
-}
-@media (max-width: 590px) {
-  footer {
-    margin-top: 500px;
-  }
-}
-@media (max-width: 540px) {
-  footer {
-    margin-top: 600px;
-  }
-}
-@media (max-width: 507px) {
-  footer {
-    margin-top: 700px;
-  }
-}
-
   </style>

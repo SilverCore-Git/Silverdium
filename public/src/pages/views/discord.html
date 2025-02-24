@@ -54,10 +54,15 @@
 
         <!-- libs javascript -->
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <!-- libs css -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
         <!-- utils scripts -->
         <script src="/src/assets/js/utils/loadblock.js" defer></script>
@@ -78,6 +83,47 @@
         <!-- page style -->
         <link rel="stylesheet" href="/src/assets/css/pages/discord/hero.css">
         <link rel="stylesheet" href="/assets/discord_widget?ext=css">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+
+                overflow-x: hidden;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; 
+                text-align: center;
+                align-content: center;
+
+                background: linear-gradient(
+                    120deg,
+                    #5f08b1,
+                    #c218b9,
+                    #b8119c,
+                    #c21054,
+                    #a74913
+                );
+                background-size: 400% 400%;
+                animation: gradient 20s ease infinite;
+            }
+
+            body::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('/src/assets/img/backWhite.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                filter: blur(1px) brightness(0.8) saturate(1.2);
+                z-index: -1;
+            }
+        </style>
 
         <!-- page script -->
         <script src="/assets/discord_widget?ext=js" type="module" defer></script>
@@ -97,13 +143,27 @@
 
             <nav class="nav">
 
-                <ul>
-                    <li><a href="/#body"><i class="bi bi-house-door"></i>Accueil</a></li>
+                <span id="menu-toggle" class="bi bi-list"></span>
+                <ul id="ul">
+                    <li><a href="/"><i class="bi bi-house-door"></i>Accueil</a></li>
                     <li><a href="/go/tipeee"><i class="bi bi-heart-fill"></i>Faire un don</a></li>
                     <li><a href="/go/rejoindre-silverdium"><i class="bi bi-arrow-down-circle"></i>Launcher</a></li>
                     <li><a href="/#savoir"><i class="bi bi-question-circle"></i>En savoir plus</a></li>
                     <li><a href="/go/discord"><i class="bi bi-discord"></i>Discord</a></li>
                 </ul>
+
+                <script defer>
+                    const menu = document.getElementById("menu-toggle")
+                    
+                    menu.addEventListener("click",() => {
+                        
+                        const ul = document.getElementById("ul");
+                        
+                        if (ul.style.display === 'flex') { ul.style.display = 'none'; menu.style.transform = 'rotate(0deg)' }
+                        else { ul.style.display = 'flex'; menu.style.transform = 'rotate(90deg)' }
+
+                    });
+                </script>
 
             </nav>
 
@@ -162,7 +222,7 @@
                     </a>
                 </div>
                 <div class="widget">
-                    <div id="members"></div>
+                    <div style="font-family: Arial, Helvetica, sans-serif;" id="members"></div>
                 </div>
             </div>
         </main>

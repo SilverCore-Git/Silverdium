@@ -51,10 +51,10 @@ header div img {
 
 
 .nav ul {
+    display: none;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
     gap: 30px;
 }
 
@@ -101,10 +101,9 @@ header div img {
 
     list-style-type: none;
     margin: 0;
-    padding: 0;
     display: flex;
 
-    padding: 10px 10px 5px 5px ;
+    padding: 6px 6px 3px 3px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
@@ -145,9 +144,13 @@ header div img {
     flex-direction: row;
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    padding: 10px 10px 5px 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    padding-left: 0;
+    padding-right: 1rem;
+    padding-top: 5.5px;
+    padding-bottom: 2.5px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
@@ -233,4 +236,68 @@ header div img {
     width: 11rem;
     height: 11rem;
     border-radius: 10px;
+}
+
+
+
+
+.nav span {
+    display: none;
+    color: white;
+    font-size: 2rem;
+
+    position: absolute;
+    right: 32rem;
+    top: 20px;
+
+    transition: all 0.2s;
+}
+
+@media (max-width: 1600px) {
+    .nav span {
+        display: block;
+    }
+    .nav ul {
+        display: none;
+        flex-direction: column;
+
+        background: linear-gradient(130deg, #5f08b1, #ff4b2b);
+        border-radius: 15px;
+
+        padding-top: 1.5rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-bottom: 1.5rem;
+
+        position: absolute;
+        top: 4.4rem;
+        right: 20rem;
+    }
+}
+
+
+@media (min-width: 1600px) {
+    .nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+    .nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 800px) {
+    #account_ul {
+        display: none;
+    }
+    .nav span {
+        position: absolute;
+        right: 5rem;
+        top: 20px;
+    }
+    .nav ul {
+        position: absolute;
+        top: 4rem;
+        right: 7rem;
+    }
 }

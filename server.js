@@ -16,19 +16,22 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const https = require('https');
+const fs = require('fs');
+const cors = require('cors');
+const axios = require('axios');
 
 // libs
 const Api = require('./src/api/client.js');
 const api = new Api('c');
 const AZauth = require('./src/auth/AZauth.js');
-const azAuth = new AZauth("http://api.dium.silverdium.fr:54/index.php");
+const azAuth = new AZauth("http://api.dium.silverdium.fr:54");
 
 // API config / data
 const API_CLIENT_DATA = require('./config/API_CLIENT_DATA.json');
 const config = require('./config/config.json')
 const link_config = require('./config/link.json'); 
 const link = link_config;
-
 
 
 
@@ -40,6 +43,15 @@ const link = link_config;
 
 // launch express
 const app = express();
+
+const options = {
+  key: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/privkey.pem`, 'utf8'),
+  cert: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/fullchain.pem`, 'utf8'),
+};
+
+app.use(cors({
+  origin: config.host.origin,
+}));
 
 
 
@@ -72,16 +84,47 @@ app.get('/api/config', (req, res) => {
 
 });
 
+// proxy
+app.get('/api/proxy', async (req, res) => {
+  console.log("______ Réception d'une requette /api/proxy/")
+  const httpUrl = req.query.http;
+  const key = req.query.key;
+  const arg1 = req.query.arg1;
+  const arg1_n = req.query.arg1_n;
+
+  const client = api.conect(key, false); 
+
+  if (client) {
+    try {
+      if (arg1) {
+        var response = await axios.get(`${httpUrl}?${arg1}=${arg1_n}`, { responseType: 'arraybuffer' });
+      } else {
+        var response = await axios.get(`${httpUrl}`, { responseType: 'arraybuffer' });
+      }
+      
+      const contentType = response.headers['content-type'] || 'application/octet-stream';
+      res.set('Content-Type', contentType);
+      
+      res.status(200).send(response.data);
+    } catch (error) {
+      console.error('Erreur lors de la récupération de la ressource:', error);
+      res.status(500).json({ error: 'Impossible de récupérer la ressource' });
+    }
+  } else {
+    res.status(401).json({ error: 'Clé API invalide' });
+  }
+});
+
 // redirection des pages de auth
 app.get('/login', (req, res) => { res.sendFile(__dirname + "/public/src/pages/auth/login.html") });
 app.get('/register', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/user/register') });
 app.get('/auth', (req, res) => { res.redirect('/login') });
 
 app.get('/user/profile', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `profile.html`) ) });
-app.get('/user/skin', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/skin-api') })
+app.get('/user/skin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `skin.html`) ) });
 
 // redirection des pages panel admin
-app.get('/admin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `index.html`)) })
+app.get('/admin', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/admin') });
 app.get('/admin/panel/:file', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', 'pages', `${req.params.file}.html`)) })
 app.get('/admin/verify/', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', 'auth', 'verify.js')) })
 app.get('/admin/assets', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `assets`, `admin.${req.query.q}`)) })
@@ -174,13 +217,11 @@ app.get('/api/auth', (req, res) => {
             });
 
             // enregistrer le token dans un cookie
-            res.cookie("big_token", response.access_token, {
-
+            res.cookie("azuriom_session", response.access_token, {
               httpOnly: true, // Protège contre XSS
-              secure: true, // Seulement en HTTPS
+              secure: false, // Seulement en HTTPS
               sameSite: "Strict", // Protection CSRF
               maxAge: config.cookie.expire * 60 * 60 * 1000
-          
             });
 
             azAuth.skin(response.uuid).then(skin =>
@@ -200,9 +241,9 @@ app.get('/api/auth', (req, res) => {
         // Vérification de session
       else if (action === 'verify') {
 
-        const Big_token = req.cookies.big_token;
+        const azuriom_session = req.cookies.azuriom_session;
 
-        azAuth.verify({ access_token: Big_token }).then(response => {
+        azAuth.verify({ access_token: azuriom_session }).then(response => {
 
           if (response.error) {
 
@@ -231,11 +272,11 @@ app.get('/api/auth', (req, res) => {
         // Déconnexion
       else if (action === 'logout') {
 
-        const Big_token = req.cookies.big_token;
+        const azuriom_session = req.cookies.azuriom_session;
 
-        res.clearCookie('big_token', { httpOnly: true, secure: false, sameSite: 'Strict' });
+        res.clearCookie('azuriom_session', { httpOnly: true, secure: false, sameSite: 'Strict' });
 
-        azAuth.logout({ access_token: Big_token }).then(response => res.json(response));
+        azAuth.logout({ access_token: azuriom_session }).then(response => res.json(response));
 
       }
 
@@ -403,6 +444,6 @@ app.get('/re', (req, res) => {
 
 
 const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Le serveur fonctionne sur le port ${PORT}`);
+https.createServer(options, app).listen(PORT, () => {
+  console.log(`HTTPS server listen on https://${config.host.name}:${PORT}`);
 });

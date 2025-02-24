@@ -30,7 +30,7 @@ if (client.error) {
 } 
 else {
 
-    document.getElementById('user_image').src = `http://api.dium.silverdium.fr:54/index.php/api/skin-api/avatars/combo/${client.name}`
+    document.getElementById('user_image').src = `https://test.silverdium.fr:3000/api/proxy?http=http://api.dium.silverdium.fr:54/api/skin-api/avatars/combo/${client.name}&key=ce4693ea4cb18818f107a20cf89f26ab`
     name.innerText = client.name;
     UUID.innerText = `UUID : ${client.uuid}`;
     mail.style.display = 'none'

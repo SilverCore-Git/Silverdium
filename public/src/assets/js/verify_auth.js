@@ -28,7 +28,7 @@ async function check() {
     }
     else {
 
-        document.getElementById('face_skin').src = `http://api.dium.silverdium.fr:54/index.php/api/skin-api/avatars/face/${client.response.name}`
+        document.getElementById('face_skin').src = `https://test.silverdium.fr:3000/api/proxy?http=http://api.dium.silverdium.fr:54/api/skin-api/avatars/face/${client.response.name}&key=ce4693ea4cb18818f107a20cf89f26ab`
         document.getElementById('auth_name').innerHTML = client.response.name + '<d class="arow">⮜</d>';
         document.getElementsByClassName('auth_profile')[0].style.display = 'flex';
 
