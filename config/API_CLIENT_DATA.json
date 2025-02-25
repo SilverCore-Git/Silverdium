@@ -1,18 +1,1 @@
-{
-    "ce4693ea4cb18818f107a20cf89f26ab": {
-        "key": "ce4693ea4cb18818f107a20cf89f26ab",
-        "owner": "silverdium",
-        "domain": "silverdium.fr",
-        "max_request": "-1",
-        "create_date": "15-02-2025",
-        "expir_date": "none"
-    },
-    "30376132e74d6a37977e43c0f6fa5888": {
-        "key": "30376132e74d6a37977e43c0f6fa5888",
-        "domain": "olala.com",
-        "owner": "olala corp",
-        "max_request": "100000",
-        "create_date": "10-02-2025",
-        "expir_date": "25-02-2026"
-    }
-}
+{}
