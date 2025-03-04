@@ -74,15 +74,11 @@
 
 
 
-
         <!-- page style -->
         <link rel="stylesheet" href="/src/assets/css/pages/login/loader.css">
         <style>
             body {
                 font-family: Arial, Helvetica, sans-serif;
-
-                overflow-x: hidden;
-
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -116,6 +112,166 @@
                 background-attachment: fixed;
                 z-index: -1;
             }
+
+
+            .form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                list-style: none;
+
+                background: linear-gradient(45deg, #ff4b2b, #5f08b1);
+                color: rgb(255, 255, 255);
+
+                border-radius: 15px;
+
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .input {
+                display: flex;
+                flex-direction: row;
+                gap: 15px;
+            }
+            .input i {
+                font-size: 2.3rem;
+                transform: translateY(5px);
+            }
+            .input input {
+                border-radius: 10px;
+                background: none;
+                
+                width: 15rem;
+                height: 3rem;
+                font-size: 1.1rem;
+                color: white;
+
+                border-color: rgba(0, 0, 0, 0.363);
+
+                padding-left: 10px;
+            }
+            .input input::placeholder {
+                font-size: 1rem;
+                color: rgb(255, 255, 255);
+            }
+            .input input:focus {
+                outline: none;
+            }
+
+
+            .remember {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 3rem;
+            }
+            .custom-checkbox {
+            display: none;
+            }
+            .custom-checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            gap: 10px;
+            }
+
+            .custom-checkbox-label::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 2px solid #4CAF50;
+            display: inline-block;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            background: #fff;
+            }
+
+            .custom-checkbox-label:hover::before {
+            border-color: #45a049;
+            }
+
+            .custom-checkbox:checked + .custom-checkbox-label::before {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+            }
+
+            .custom-checkbox:checked + .custom-checkbox-label::before {
+            content: "✔";
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            }
+
+
+        .btn-login {
+            background: linear-gradient(145deg, #5f08b1, #10b0c5);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-login:hover {
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-login:active {
+            background: linear-gradient(145deg, #2575fc, #6a11cb);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+
+        .btn-login i {
+            margin-right: 12px;
+        }
+
+
+
+            .dontHave {
+                margin-top: 3rem;
+
+                display: flex;
+                flex-direction: row;
+
+                font-size: 1.1rem;
+                gap: 1rem;
+            }
+            .dontHave div {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            #loader {
+                display: none;
+            }
+
+    
+
         </style>
 
         <!-- page script -->
@@ -125,75 +281,132 @@
 
     </head>
 
-    <body style="overflow: hidden;">
+    <body>
         
-        <!-- <header>
+        <header>
 
-            <div>
+            <a href="/"><div>
                 <img src="https://api.silverdium.fr/img/dium/logo.png" alt="Logo">
                 <h2 class="titleh2">Silverdium</h2>
-            </div>
+            </div></a>
 
-            <nav>
+            <nav class="nav">
 
-                <ul>
-                    <li><a href="/#body">Accueil</a></li>
-                    <li><a href="/go/tipeee">Faire un don</a></li>
-                    <li><a href="/go/rejoindre-silverdium">Launcher</a></li>
-                    <li><a href="/#savoir">En savoir plus</a></li>
-                    <li><a href="/go/discord">Discord</a></li>
+                <span id="menu-toggle" class="bi bi-list"></span>
+                <ul id="ul">
+                    <li><a href="/#body"><i class="bi bi-house-door"></i>Accueil</a></li>
+                    <li><a href="/go/tipeee"><i class="bi bi-heart-fill"></i>Faire un don</a></li>
+                    <li><a href="/go/rejoindre-silverdium"><i class="bi bi-arrow-down-circle"></i>Launcher</a></li>
+                    <li><a href="/#savoir"><i class="bi bi-question-circle"></i>En savoir plus</a></li>
+                    <li><a href="/go/discord"><i class="bi bi-discord"></i>Discord</a></li>
                 </ul>
 
+                <script defer>
+                    const menu = document.getElementById("menu-toggle")
+                    
+                    menu.addEventListener("click",() => {
+                        
+                        const ul = document.getElementById("ul");
+                        
+                        if (ul.style.display === 'flex') { ul.style.display = 'none'; menu.style.transform = 'rotate(0deg)' }
+                        else { ul.style.display = 'flex'; menu.style.transform = 'rotate(90deg)' }
+
+                    });
+                </script>
+
             </nav>
-            
-        </header>  -->
+
+            <nav id="account_ul">
+
+                <div class="auth_nav">
+
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><a href="/login"><i class="bi bi-key-fill"></i>Connection</a></li>
+                        <li><a href="/register">Inscription<i style="margin-right: 0; margin-left: 10px;" class="bi bi-person-plus-fill"></i></a></li>
+                    </ul>
+
+                </div>
+
+
+                <div class="auth_profile">
+
+                    <ul style="display: flex; flex-direction: row;">
+                        <li><a href="https://youtu.be/dQw4w9WgXcQ"><img id="face_skin"></a></li>
+                        <li class="dropdown nav-item">
+                            <a class="nav-link dropdown-toggle" style="display: flex; flex-direction: row;" id="auth_name">Nom d'utilisateur</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/user/profile"><i class="bi bi-person-circle"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="/user/skin"><i class="bi bi-pencil"></i>Mon skin</a></li>
+                                <li style="margin-bottom: -15px;" id="auth_profile_admin"><a class="dropdown-item" href="/admin"><i class="bi bi-gear"></i>Panel admin</a></li>
+                                <li><hr style="color: white;" class="dropdown-divider"></li>
+                                <li style="margin-top: -15px;"><style>#logout:hover { color: red; }</style><a class="dropdown-item" id="logout"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                
+
+            </nav> 
+             
+        </header>
+        
 
         <main class="hero">
 
             <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative; top: 16rem; left: 6px;">
 
-                <script src="https://cdn.tailwindcss.com"></script>
-                <form id="conect" style="border: none; width: 110%;">
+                <form id="conect" style="border: none; width: 100%; height: 100vh;">
 
-                    <!-- From Uiverse.io by Yaya12085 -->
+                    <div class="form">
 
-                    <div class="w-80 rounded-2xl bg-gradient-to-r from-blue-900 to-purple-900 shadow-lg">
+                        <div class="inputs">
 
-                        <div style="margin-top: 1rem;" class="flex flex-col gap-2 p-8">
+                            <div class="input">
 
-                            <input id="mail" type="email" class="bg-transparent text-white w-full rounded-lg border border-blue-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-purple-800 placeholder-gray-300" placeholder="Email">
-                            <input id="passwd" type="password" style="margin-bottom: 2rem;" class="bg-transparent text-white w-full rounded-lg border border-blue-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-purple-800 placeholder-gray-300" placeholder="Password">
-                            
-                            <!-- <label class="flex cursor-pointer items-center justify-between p-1 text-gray-300">
-                                Accept terms of use
-                                <div class="relative inline-block">
-                                    <input class="peer h-6 w-12 cursor-pointer appearance-none rounded-full border border-blue-400 bg-gray-700 checked:border-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" type="checkbox">
-                                    <span class="pointer-events-none absolute left-1 top-1 block h-4 w-4 rounded-full bg-purple-500 transition-all duration-200 peer-checked:left-7 peer-checked:bg-green-300"></span>
-                                </div>
-                            </label> -->
+                                <i class="bi bi-at"></i>
+                                <input id="mail" type="email" placeholder="Votre email">
 
-                            <label class="justify-between p-1 text-gray-300">
-                                Connection avec <strong>SilverAuth</strong> !
-                                Utilisation de la <strong><a style="color: white;" href="https://auth.silverdium.fr">silverdium API</a></strong>
-                                sur le CDN aeuriom
-                            </label>
+                            </div>
 
-                            <!-- <label class="flex cursor-pointer items-center justify-between p-1 text-gray-300">
-                                Submit to newsletter
-                                <div class="relative inline-block">
-                                    <input class="peer h-6 w-12 cursor-pointer appearance-none rounded-full border border-blue-400 bg-gray-700 checked:border-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" type="checkbox">
-                                    <span class="pointer-events-none absolute left-1 top-1 block h-4 w-4 rounded-full bg-purple-500 transition-all duration-200 peer-checked:left-7 peer-checked:bg-green-300"></span>
-                                </div>
-                            </label> -->
+                            <div class="input">
 
-                            <button type="submit" id="btn" style="margin-top: 2rem; margin-bottom: 1rem;" class="inline-block cursor-pointer rounded-md bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:from-blue-700 hover:to-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-95">
-                                Se connecter !
-                            </button>
-                            <a href="/" style="color: rgb(122, 201, 188); text-decoration: underline;">Retourner a l'Accueil</a>
-                        
+                                <i class="bi bi-lock"></i>
+                                <input id="passwd" type="password" placeholder="Votre mot de passe">
+                                
+                            </div>
+
                         </div>
 
+                        <div class="remember">
+
+                                <input type="checkbox" id="checkbox" class="custom-checkbox">
+                                <label for="checkbox" class="custom-checkbox-label">ㅤ<i class="bi bi-book"></i>Se souvenir de moi ㅤ !</label>                                
+
+                        </div>
+
+
+
+                        <button id="btn" class="btn-login">
+                            <i class="bi bi-box-arrow-in-right"></i> 
+                            Se connecter
+                        </button>
+
+
+                        <div class="dontHave">
+
+                            <div>
+                                <i class="bi bi-person"></i>
+                                <label>Pas de compte ?</label>
+                            </div>
+
+                            <a style="color: #6a11cb;" href="https://silverdium.fr/register"><strong>Inscription</strong></a>
+
+                        </div>
+
+
                     </div>
+
                 </form>
 
                 <section id="loader" style="justify-content: center; align-items: center; flex-direction: column; position: relative; top: 2rem;">
