@@ -15,7 +15,7 @@
         <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
 
         <!-- meta SEO -->
-        <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
+        <meta name="keywords" content="faire un dons, minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
         <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta name="language" content="fr">
         <meta name="geo.region" content="FR">
@@ -24,12 +24,25 @@
         <meta name="format-detection" content="telephone=no">
 
         <!-- meta open graph -->
-        <meta property="og:title" content="Silverdium">
+        <meta property="og:title" content="Silverdium - Serveur minecraft PVP - FACTION - MODEE">
         <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta property="og:image" content="https://api.silverdium.fr/img/dium/logo.png">
         <meta property="og:site_name" content="Tipeee - Silverdium - Minecraft">
         <meta property="og:locale" content="fr_FR">
 
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Faire un don - Silverdium",
+              "description": "Vous pouvez nous aider avec un petit don et faire évoluer les services de silvercore.",
+              "provider": {
+                "@type": "Organization",
+                "name": "Silverdium",
+                "url": "https://www.silverdium.fr"
+              }
+            }
+        </script>
     
         <!-- SilverPopups -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -117,12 +130,12 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('/src/assets/img/montane.webp');
+                background-image: url('');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
-                filter: blur(3px) brightness(0.6) saturate(1.2);
+                filter: blur(6px) brightness(0.6) saturate(1.2);
                 z-index: -1;
             }
         </style>
@@ -134,7 +147,7 @@
 
     </head>
 
-    <body>
+    <body style="overflow: hidden;">
         
         <header>
 
@@ -207,7 +220,7 @@
 
             <h1><strong>vous pouvez nous aider</strong></h1>
 
-            <div class="tipeee_card">
+            <div style="margin-top: 2rem;" class="tipeee_card">
 
                 <div>
 
@@ -233,8 +246,8 @@
                 </div>
 
                 <!-- From Uiverse.io by vinodjangid07 --> 
-                <a href="#TIPs">
-                <button style="position: relative; top: 4.5rem;" class="faq-button">
+                <!-- <a style="margin-top: 12rem;" href="#TIPs">
+                <button class="faq-button">
                     <svg style="font-size: 3rem; color: #ffff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24">
                         <path 
                             fill="currentColor"
@@ -243,14 +256,15 @@
                     </svg>
                     <span style="font-size: 1.1rem; font-family: Stencil Std, fantasy;" class="tooltip"><strong> TIP's </strong></span>
                 </button></a>
-                
-    
-                <div style="position: relative; top: 265px;" id="TIPs"></div>
+
+            </div>
+
+            <div class="ifrange">
+                <div id="TIPs"></div>
                 <iframe src="https://fr.tipeee.com/silverdium">
                     <h2>Vôtre navigateur n'est pas compatible avec cette fonction (c'est domage, 😥)</h2>
                 </iframe>
-
-            </div>
+            </div> -->
 
         </main> 
 

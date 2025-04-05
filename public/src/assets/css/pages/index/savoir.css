@@ -5,7 +5,7 @@
 **/
 
 .quisommesnous {
-    width: 100%;
+    width: 110%;
     height: 110vh;
     display: flex;
     align-items: center;
@@ -42,8 +42,8 @@
   box-shadow: 0 0 30px rgba(0, 0, 0, 1);
   border-radius: 15px;
 
-  margin-top: 10rem;
-  margin-bottom: 6rem;
+  margin-top: 16rem;
+  margin-bottom: 16rem;
   
 }
 
@@ -137,5 +137,10 @@
 @media (max-width: 900px) {
   .container {
     padding: 1rem 1.5rem 0rem 1.5rem;
+  }
+  .card {  
+    margin-top: 80rem;
+    margin-bottom: 80rem;
+    
   }
 }

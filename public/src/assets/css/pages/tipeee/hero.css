@@ -14,16 +14,32 @@
     color: #ffff;
     display: flex;
     align-items: center;
+    align-content: center;
+    justify-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
 }
 
-.hero h1 {
-    margin-top: 55rem;
-    margin-bottom: 5rem;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/src/assets/img/montane.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(6px) brightness(0.6) saturate(1.2);
+  z-index: -1;
+}
 
+.hero h1 {
+  margin-top: 30rem;
     font-size: 3.5rem;
     text-transform: uppercase;
     color: #00FFFF;
@@ -33,6 +49,7 @@
 }
 
 .tipeee_card {
+  margin-bottom: 30rem;
     display: flex;
     align-items: center;
     align-content: center;
@@ -82,11 +99,9 @@
    }
    
    .tipeee_btn div {
-    transform: translateY(0px);
-    width: calc(100% + 10px);
-    position: relative;
     top: -10px;
     left: -5px;
+    width: calc(100% + 10px);
    }
    
    .tipeee_btn,
@@ -206,11 +221,11 @@
   }
   
   .faq-button:hover .tooltip {
-    top: -40px;
     opacity: 1;
     transition-duration: 0.3s;
   }
   
+
 
 
 .tipeee_card iframe {
@@ -218,10 +233,31 @@
     width: 60rem;
     height: 52rem;
 
-    position: relative;
-    left: 0;
-    top: 22rem;
 
     border-radius: 10px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.603);
+}
+
+
+.ifrange {
+  position: relative; 
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; /* Assure que la section prend toute la hauteur de l'écran */
+}
+
+.ifrange::before {
+  content: '';
+  position: absolute; 
+  top: 0; /* Remis à 0 pour éviter un espace vide */
+  left: 0;
+  width: 100%;
+  height: 100%; /* Assure que l'image prend toute la hauteur */
+  background-image: url('/src/assets/img/village.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(3px) brightness(0.71) saturate(1.2);
+  z-index: -1; /* Place l'image en arrière-plan */
 }

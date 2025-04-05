@@ -11,6 +11,8 @@ document.getElementById('loader').style.display = 'flex';
 import { login, verify } from '/src/pages/auth/js/auth.js';
 import salert from '/src/assets/js/utils/salert.js';
 
+const KEY = "ce4693ea4cb18818f107a20cf89f26ab";
+
 const btn = document.getElementById('btn');
 const mail = document.getElementById('mail');
 const passwd = document.getElementById('passwd');
@@ -49,12 +51,12 @@ async function connect() {
 
     try {
 
-        const Login = await new login(mail.value, passwd.value); // Attendre la réponse de login()
+        const Login = await new login(mail.value, passwd.value, KEY); // Attendre la réponse de login()
         let client = Login.response;
 
         if (!client.error) {
 
-            const Verify = await new verify(); // Attendre la vérification
+            const Verify = await new verify(KEY); // Attendre la vérification
             let client = Verify.response
             
             if (!client.user_info.banned) {

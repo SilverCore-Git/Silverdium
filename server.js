@@ -15,11 +15,10 @@
 // package
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
-const https = require('https');
+const http = require('http');
 const fs = require('fs');
-const cors = require('cors');
 const axios = require('axios');
+require('dotenv').config();
 
 // libs
 const Api = require('./src/api/client.js');
@@ -32,6 +31,7 @@ const API_CLIENT_DATA = require('./config/API_CLIENT_DATA.json');
 const config = require('./config/config.json')
 const link_config = require('./config/link.json'); 
 const link = link_config;
+const SilverAuth_APIKEY = process.env.SAUTH_API_KEY;
 
 
 
@@ -44,14 +44,18 @@ const link = link_config;
 // launch express
 const app = express();
 
-const options = {
-  key: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/privkey.pem`, 'utf8'),
-  cert: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/fullchain.pem`, 'utf8'),
-};
+// const options = {
+//   key: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/privkey.pem`, 'utf8'),
+//   cert: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/fullchain.pem`, 'utf8'),
+// };
 
-app.use(cors({
-  origin: config.host.origin,
-}));
+
+app.use((req, res, next) => {
+  if (req.hostname !== config.hostname && req.hostname !== `www.${config.hostname}` ) {
+    res.end() 
+  }
+  next();
+});
 
 
 
@@ -62,13 +66,21 @@ app.use(cors({
     //          #####################################
 
 // redirection auto vers public/ pour app.get('/')
-app.use(express.static(path.join(__dirname, 'public')), cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // redirection des /pages vers /go/pages
 app.get('/tipeee', (req, res) => { res.redirect('/go/tipeee') });
 app.get('/discord', (req, res) => { res.redirect('/go/tipeee') });
 app.get('/jouer', (req, res) => { res.redirect('/go/rejoindre-silverdium') });
 app.get('/rejoindre-silverdium', (req, res) => { res.redirect('/go/rejoindre-silverdium') });
+
+// divers 
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile(path.join(__dirname, 'sitemap.xml'))
+})
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'favicon.ico'))
+})
 
 // trash
 app.get('/api/config', (req, res) => { 
@@ -116,9 +128,20 @@ app.get('/api/proxy', async (req, res) => {
 });
 
 // redirection des pages de auth
-app.get('/login', (req, res) => { res.sendFile(__dirname + "/public/src/pages/auth/login.html") });
-app.get('/register', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/index.php/user/register') });
+app.get('/login', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=login&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
+app.get('/register', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=register&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
 app.get('/auth', (req, res) => { res.redirect('/login') });
+app.get('/auth/callback', (req, res) => { 
+  console.log('caca, ' + req.query.id)
+  res.send(`
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
+      .then( window.location.href = 'https://silverdium.fr' );
+    </script>
+    `)
+})
 
 app.get('/user/profile', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `profile.html`) ) });
 app.get('/user/skin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `skin.html`) ) });
@@ -130,9 +153,9 @@ app.get('/admin/verify/', (req, res) => { res.sendFile(path.join(__dirname, 'pub
 app.get('/admin/assets', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `assets`, `admin.${req.query.q}`)) })
 
 // redirection des fichier bots dans racines
-app.get('/robots.txt', (req, res) => { res.redirect('/robots.txt') });
-app.get('/sitemap.xml', (req, res) => { res.redirect('/sitemap.xml') });
-app.get('/ads.txt', (req, res) => { res.redirect('/ads.txt') });
+app.get('/robots.txt', (req, res) => { res.sendFile(path.join(__dirname, 'robots.txt')) });
+app.get('/sitemap.xml', (req, res) => { res.sendFile(path.join(__dirname, 'sitemap.xml')) });
+app.get('/ads.txt', (req, res) => { res.sendFile(path.join(__dirname, 'ads.txt')) });
 
 
 
@@ -157,6 +180,8 @@ app.get('/go/:page', (req, res) => {
 
 
 // chemin de récuperation des ressources type assets. use ==> /assets/myfile?ext=css => assets/ext/myfile.ext
+app.get('/assets/auth', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'auth', 'js', `auth.js`) ) })
+app.get('/assets/salert', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'assets', 'js', 'utils', `salert.js`) ) })
 app.get('/assets/:file', (req, res) => {
 
   const file = req.params.file
@@ -164,6 +189,11 @@ app.get('/assets/:file', (req, res) => {
 
   if (ext.includes('..')) {
     res.send('<h1>Argument non autorisé dans ext')
+    return
+  }
+
+  if (file.includes('..')) {
+    res.send('<h1>Argument non autorisé')
     return
   }
 
@@ -175,243 +205,6 @@ app.get('/assets/:file', (req, res) => {
   }
 
 })
-
-
-// chemin de récuperation pour SilverAuth => /auth/page or api/auth?az=login&mail=mail@caca.com&passwd=monsuperpasswd&key=apikey
-app.get('/api/auth', (req, res) => {
-  console.log("______ Réception d'une requette /api/auth/")
-
-  const action = req.query.az
-  const mail = req.query.mail
-  const passwd = req.query.passwd
-  const key = req.query.key
-
-  const client = api.conect(key, false);
-
-  if (client) {
-
-
-          // Connexion d'un utilisateur
-      if (action === 'login') {
-      
-        azAuth.login(mail, passwd).then(response => {
-
-          if (response.error) {
-
-            console.log(`Erreur lors de la conection de l'utilisateur : ${response.username}`);
-            console.log(response.err)
-            azAuth.skin(response.uuid).then(skin => 
-              res.json({
-                response: response,
-                skin: skin
-              })
-            );
-
-          } else {
-
-            console.log('Nouvelle conection a un compte !')
-            console.log({
-              mail: mail, 
-              passwd: "bas t'a cru je vais te le donner !?",
-              az_response: response
-            });
-
-            // enregistrer le token dans un cookie
-            res.cookie("azuriom_session", response.access_token, {
-              httpOnly: true, // Protège contre XSS
-              secure: false, // Seulement en HTTPS
-              sameSite: "Strict", // Protection CSRF
-              maxAge: config.cookie.expire * 60 * 60 * 1000
-            });
-
-            azAuth.skin(response.uuid).then(skin =>
-              res.json({
-                response: response,
-                skin: skin
-              })
-            );
-
-          }
-
-        });
-    
-
-      }
-      
-        // Vérification de session
-      else if (action === 'verify') {
-
-        const azuriom_session = req.cookies.azuriom_session;
-
-        azAuth.verify({ access_token: azuriom_session }).then(response => {
-
-          if (response.error) {
-
-            console.log(`Erreur lors de la verification de l'utilisateur : ${response.username}`);
-            azAuth.skin(response.uuid).then(skin => 
-              res.json({
-                response: response,
-                skin: skin
-              })
-            );
-
-          } else {
-
-            azAuth.skin(response.uuid).then(skin => 
-              res.json({
-                response: response,
-                skin: skin
-              })
-            );
-
-          }
-        })
-
-      }
-      
-        // Déconnexion
-      else if (action === 'logout') {
-
-        const azuriom_session = req.cookies.azuriom_session;
-
-        res.clearCookie('azuriom_session', { httpOnly: true, secure: false, sameSite: 'Strict' });
-
-        azAuth.logout({ access_token: azuriom_session }).then(response => res.json(response));
-
-      }
-
-
-      else {
-        res.json({
-          error: true,
-          message: "Erreur dans la composition de la requette !",
-          usage: "/api/auth?az=action&mail=mail@olala.com&passwd=mon super passwd"
-        })
-      };
-
-  }
-
-})
-// app.post("/api/user/update_skin", (req, res) => {
-
-//   const key = req.query.key
-
-//   const client = api.conect(key, false);
-
-//   if (client) {
-
-//     if (!req.file || req.file.size === 0) {
-        
-//         res.status(400).json({ error: true, message: "Fichier non reçu ou vide." });
-
-//       }
-
-//       azAuth.updateSkin(req.file).then(res => res.json(res))
-
-//   }
-
-// });
-
-
-
-
-//     A REVOIR !!!!
-
-// ex /api/GOOD_API_KEY?action=get?spec=olala?option=MY_GOOD_OPTION
-// app.get('/api/:key', (req, res) => {
-//   console.log("Réception d'une requette vers l'api /api/");
-
-//   const action = req.query.action
-//   const spec = req.query.spec
-//   const option = req.query.option
-//   const Key = req.params.key
-
-//   if (action) {
-//     execut_action()
-//   } else {
-//     api.conect(Key)
-//   }
-
-//   function execut_action() {
-//     if (Key) {
-
-//       console.log("Client connecter ! API_KEY = ", Key)
-//       console.log("Information du client :")
-//       console.log(API_CLIENT_DATA[Key])
-
-//       if (action === 'get_launcher') {
-
-//         const launcher_github = 'https://github.com/Philippeletug/Silverdium-Launcher';
-//         const launcher_latest = '1.1.6';
-//         const launcher_name = 'Silverdium-Launcher';
-//         const launcher_linux = "Silverdium-Launcher-linux-x86_64.rpm";
-//         const launcher_win = "Silverdium-Launcher-win-x64.exe";
-//         const launcher_mac = "Silverdium-Launcher-mac-universal.dmg";
-
-//         if (option === 'latest') {
-//           const download_path = `${launcher_github}/releases/download/${launcher_latest}/`
-//           res.json ({
-
-//             message: "Connection etablie avec l'api !",
-//             status: "succes",
-
-//             launcher_name: launcher_name,
-//             launcher_latest: launcher_latest,
-//             version: option,
-
-//             github_path: launcher_github,
-
-//             launcher_linux: launcher_linux,
-//             launcher_win: launcher_win,
-//             launcher_mac: launcher_mac,
-
-//             download_path: {
-//               "main": download_path,
-//               'linux': download_path + launcher_linux,
-//               "win": download_path + launcher_win,
-//               "mac": download_path + launcher_mac,
-//             }
-
-//           })
-//         } else {
-//           const download_path = `${launcher_github}/releases/download/${option}/`;
-//           res.json ({
-
-//             message: "Connection etablie avec l'api !",
-//             status: "succes",
-
-//             launcher_name: launcher_name,
-//             launcher_latest: launcher_latest,
-//             version: option,
-
-//             github_path: launcher_github,
-
-//             launcher_linux: launcher_linux,
-//             launcher_win: launcher_win,
-//             launcher_mac: launcher_mac,
-
-//             download_path: {
-//               "main": download_path,
-//               'linux': download_path + launcher_linux,
-//               "win": download_path + launcher_win,
-//               "mac": download_path + launcher_mac,
-//             }
-//           })
-//         }
-//       }
-
-//     }
-//   }
-
-
-//})
-
-app.get('/api', (req, res) => { 
-  res.json({
-    message: "La clé d'api n'est pas défini...",
-    status: "error",
-  })
-});
 
 app.get('/re', (req, res) => {
 
@@ -442,8 +235,11 @@ app.get('/re', (req, res) => {
 
 });
 
+// app.use((req, res) => {
+//   res.status(404).redirect('https://api.silverdium.fr/www.errors/404.html');
+// });
 
 const PORT = 3000;
-https.createServer(options, app).listen(PORT, () => {
-  console.log(`HTTPS server listen on https://${config.host.name}:${PORT}`);
-});
+http.createServer(app).listen(PORT, () => {
+  console.log(`HTTPS server listen on https://${config.hostname}:${PORT}`);
+}); 

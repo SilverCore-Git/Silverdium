@@ -5,10 +5,9 @@
  */
 
 const url = "/api/auth";
-const api_key = "ce4693ea4cb18818f107a20cf89f26ab";
 
-export function login(mail, passwd) {
-    return fetch(`/api/auth?az=login&mail=${mail}&passwd=${passwd}&key=${api_key}`)
+export function login(mail, passwd, api_key) {
+    return fetch(`${url}?az=login&mail=${mail}&passwd=${passwd}&key=${api_key}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -22,7 +21,7 @@ export function login(mail, passwd) {
 
 
 
-export  function verify() {
+export  function verify(api_key) {
 
     return fetch(`${url}?az=verify&key=${api_key}`)
     .then(response => {
@@ -37,7 +36,7 @@ export  function verify() {
 }
 
 
-export  function logout() {
+export  function logout(api_key) {
 
     return fetch(`${url}?az=logout&key=${api_key}`)
     .then(response => {
@@ -52,12 +51,12 @@ export  function logout() {
 }
 
 
-export async function update_skin(file) {
+export async function update_skin(file, api_key) {
 
   const formData = new FormData();
   formData.append("skin", file);
 
-  return fetch(`/api/user/update_skin?key=${api_key}`, {
+  return fetch(`https://corsproxy.io/?url=https://silverdium.fr/api/user/update_skin?key=${api_key}`, {
     method: "POST",
     body: formData
   });

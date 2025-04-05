@@ -21,7 +21,7 @@
         <link id="favicon" rel="icon" href="https://api.silverdium.fr/img/dium/logo.png" type="image/png">
 
         <!-- meta SEO --> 
-        <meta name="keywords" content="minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
+        <meta name="keywords" content="télécharger le launcher, minecraft, modée, jeux, serveur minecraft, serveur, silvercore, silverdium, open source, ethique, silvertransfer, pvp faction modée, MisterPapaye, jemy5">
         <meta name="description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta name="language" content="fr">
         <meta name="geo.region" content="FR">
@@ -30,12 +30,25 @@
         <meta name="format-detection" content="telephone=no">
 
         <!-- meta open graph -->
-        <meta property="og:title" content="Silverdium">
+        <meta property="og:title" content="Silverdium - Serveur minecraft PVP - FACTION - MODEE">
         <meta property="og:description" content="Silverdium, serveur Minecraft PVP - FACTION - MODEE unique en son genre pour votre aventure éxtraordinaire !! redécouvrez Minecraft avec Silverdium, by SilverCore">
         <meta property="og:image" content="https://api.silverdium.fr/img/dium/logo.png">
         <meta property="og:site_name" content="Rejoindre - Silverdium - Minecraft">
         <meta property="og:locale" content="fr_FR">
 
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Rejoindre Silverdium - téléchargé le launcher",
+              "description": "Télécharger le magnifique launcher du serveur minecraft Silverdium.",
+              "provider": {
+                "@type": "Organization",
+                "name": "Silverdium",
+                "url": "https://www.silverdium.fr"
+              }
+            }
+        </script>
     
         <!-- SilverPopups -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -142,7 +155,7 @@
 
     </head>
 
-    <body>
+    <body style="overflow-x: hidden;">
         
         <header>
 
@@ -249,37 +262,40 @@
 
         </main>
 
-        <div style="position: relative; top: -90px;" id="launcher_img"></div>
-        <section class="launcher_img">
+        <div style="position: relative; top: -12.5rem" id="launcher_img"></div>
+        <div class="t">
+            <section class="launcher_img">
 
-            <div class="launcher_card">
+                <div class="launcher_card">
 
-                <div class="launcher_img_contaner">
-                    <img src="/src/assets/img/launcher/img3.png" placeholder="Capture d'écran">
-                </div>
-                
-                <div class="launcher_img_contaner">
-                    <img src="/src/assets/img/launcher/img4.png" placeholder="Capture d'écran">
-                </div>
+                    <div class="launcher_img_contaner">
+                        <img src="/src/assets/img/launcher/img3.png" placeholder="Capture d'écran">
+                    </div>
+                    
+                    <div class="launcher_img_contaner">
+                        <img src="/src/assets/img/launcher/img4.png" placeholder="Capture d'écran">
+                    </div>
 
-            </div>
-
-            <div class="launcher_card">
-
-                <div class="launcher_img_contaner">
-                    <img src="/src/assets/img/launcher/img5.png" placeholder="Capture d'écran">
-                </div>
-                
-                <div class="launcher_img_contaner">
-                    <img src="/src/assets/img/launcher/img1.png" placeholder="Capture d'écran">
                 </div>
 
-            </div>
+                <div class="launcher_card">
 
-        </section>
+                    <div class="launcher_img_contaner">
+                        <img src="/src/assets/img/launcher/img5.png" placeholder="Capture d'écran">
+                    </div>
+                    
+                    <div class="launcher_img_contaner">
+                        <img src="/src/assets/img/launcher/img1.png" placeholder="Capture d'écran">
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
 
 
-        <div id="footer"></div>
+        <div style="position: relative; top: -17rem;" id="footer"></div>
  
     </body>
 

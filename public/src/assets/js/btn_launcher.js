@@ -4,7 +4,7 @@
  * @author MisterPapaye
  */
 
-const Launcher_version = '1.1.6'
+const Launcher_version = '1.1.7'
 
 const Launcher_Name = 'Silverdium-Launcher'
 

@@ -4,6 +4,7 @@ User-agent: *
 
 # Ne pas Autoriser
 Disallow: /api
+Disallow: /admin
 
 # Autoriser
 Allow: /go

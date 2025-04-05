@@ -8,8 +8,10 @@ import { verify, logout } from "/src/pages/auth/js/auth.js";
 
 const Logout = document.getElementById('logout')
 
+const KEY = "ce4693ea4cb18818f107a20cf89f26ab";
+
 Logout.addEventListener('click', () => {
-    logout()
+    logout(KEY)
     location.reload();
 })
 
@@ -19,7 +21,7 @@ async function check() {
     document.querySelector('.auth_profile').style.display = 'none';
     document.getElementById('auth_profile_admin').style.display = 'none';
 
-    const client = await new verify();
+    const client = await new verify(KEY);
 
     if (client.response.error) {
 

@@ -28,15 +28,7 @@
 
     },
 
+    "hostname": "localhost"
 
-    "host": {
-
-        "origin": [
-            "test.silverdium.fr:3000"
-        ],
-
-        "name": "test.silverdium.fr"
-
-    }
 
 }

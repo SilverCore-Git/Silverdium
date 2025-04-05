@@ -1,1 +1,18 @@
-{}
+{
+    "ce4693ea4cb18818f107a20cf89f26ab": {
+        "key": "ce4693ea4cb18818f107a20cf89f26ab",
+        "owner": "silverdium",
+        "domain": "silverdium.fr",
+        "max_request": "-1",
+        "create_date": "15-02-2025",
+        "expir_date": "01-01-2026"
+    },
+    "41a760a53316e193c2931af9163814f1": {
+        "key": "41a760a53316e193c2931af9163814f1",
+        "domain": "silvercore.fr",
+        "owner": "silvercore",
+        "max_request": "-1",
+        "create_date": "09-03-2025",
+        "expir_date": "01-01-2026"
+    }
+}
