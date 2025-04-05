@@ -228,7 +228,7 @@ app.get('/re', (req, res) => {
     else if (redir === 'discord') { res.redirect(discord) }
     else if (redir === 'tiktok') { res.redirect(tiktok) }
     else if (redir === 'insta') { res.redirect(insta) }
-    else if (redir === 'youtube') { res.redirect(youtube) }
+    else if (redir === 'youtube') { res.redirect(youtube) } 
 
   }
   res.send(err_message)
