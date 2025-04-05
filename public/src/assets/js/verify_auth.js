@@ -8,10 +8,8 @@ import { verify, logout } from "/src/pages/auth/js/auth.js";
 
 const Logout = document.getElementById('logout')
 
-const KEY = "ce4693ea4cb18818f107a20cf89f26ab";
-
 Logout.addEventListener('click', () => {
-    logout(KEY)
+    logout()
     location.reload();
 })
 
@@ -21,20 +19,20 @@ async function check() {
     document.querySelector('.auth_profile').style.display = 'none';
     document.getElementById('auth_profile_admin').style.display = 'none';
 
-    const client = await new verify(KEY);
+    const client = await verify();
 
-    if (client.response.error) {
+    if (client.error) {
 
         document.getElementsByClassName('auth_nav')[0].style.display = 'flex';
 
     }
     else {
 
-        document.getElementById('face_skin').src = `https://test.silverdium.fr:3000/api/proxy?http=http://api.dium.silverdium.fr:54/api/skin-api/avatars/face/${client.response.name}&key=ce4693ea4cb18818f107a20cf89f26ab`
-        document.getElementById('auth_name').innerHTML = client.response.name + '<d class="arow">⮜</d>';
+        document.getElementById('face_skin').src = `https://auth.silverdium.fr/api/skin/view/head/${client.data.usr_info.name}`;
+        document.getElementById('auth_name').innerHTML = client.data.usr_info.name + '<d class="arow">⮜</d>';
         document.getElementsByClassName('auth_profile')[0].style.display = 'flex';
 
-        if (client.response.user_info.role.id === 2) {
+        if (client.data.usr_info.account_grade === 'ADMIN') {
 
             document.getElementById('auth_profile_admin').style.display = 'block';
             document.getElementById('auth_name').style.color = '#b90fc9';
@@ -44,5 +42,6 @@ async function check() {
     }
 }
 
-
-check();
+document.addEventListener('DOMContentLoaded', () => {
+    check();
+})

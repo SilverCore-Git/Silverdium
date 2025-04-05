@@ -128,17 +128,16 @@ app.get('/api/proxy', async (req, res) => {
 });
 
 // redirection des pages de auth
-app.get('/login', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=login&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
-app.get('/register', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=register&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
+app.get('/login', (req, res) => { res.redirect(`http://localhost:8456/popup/auth?action=login&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
+app.get('/register', (req, res) => { res.redirect(`http://localhost:8456/popup/auth?action=register&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
 app.get('/auth', (req, res) => { res.redirect('/login') });
-app.get('/auth/callback', (req, res) => { 
-  console.log('caca, ' + req.query.id)
+app.get('/auth/callback', (req, res) => {
   res.send(`
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
-      fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
-      .then( window.location.href = 'https://silverdium.fr' );
+      fetch("http://localhost:8456/popup/getaccount/" + id)
+      .then( window.location.href = 'http://localhost:3000/' );
     </script>
     `)
 })
@@ -147,10 +146,8 @@ app.get('/user/profile', (req, res) => { res.sendFile(path.join(__dirname, 'publ
 app.get('/user/skin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `skin.html`) ) });
 
 // redirection des pages panel admin
-app.get('/admin', (req, res) => { res.redirect('http://api.dium.silverdium.fr:54/admin') });
-app.get('/admin/panel/:file', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', 'pages', `${req.params.file}.html`)) })
-app.get('/admin/verify/', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', 'auth', 'verify.js')) })
-app.get('/admin/assets', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'admin', `assets`, `admin.${req.query.q}`)) })
+app.get('/admin', (req, res) => { res.redirect('https://auth.silverdium.fr/panel/admin') });
+
 
 // redirection des fichier bots dans racines
 app.get('/robots.txt', (req, res) => { res.sendFile(path.join(__dirname, 'robots.txt')) });
@@ -235,9 +232,59 @@ app.get('/re', (req, res) => {
 
 });
 
-// app.use((req, res) => {
-//   res.status(404).redirect('https://api.silverdium.fr/www.errors/404.html');
-// });
+app.get('/get/silverauth/apikey', (req, res) => {
+
+  const referer = req.get('Referer');
+
+  if (req.hostname === config.hostname) {
+    if (referer == `http://${config.hostname}:3000/`) {
+      return res.json({key: SilverAuth_APIKEY})
+    }
+  };
+
+  res.end();
+
+})
+
+app.get('/get/mydata', (req, res) => {
+
+  const fullInfo = {
+    method: req.method,
+    url: req.url,
+    originalUrl: req.originalUrl,
+    baseUrl: req.baseUrl,
+    path: req.path,
+    protocol: req.protocol,
+    secure: req.secure,
+    hostname: req.hostname,
+    ip: req.ip,
+    ips: req.ips,
+    subdomains: req.subdomains,
+    headers: req.headers,
+    contentType: req.get('Content-Type'),
+    userAgent: req.get('User-Agent'),
+    cookies: req.cookies || {},
+    signedCookies: req.signedCookies || {},
+    query: req.query,
+    params: req.params,
+    body: req.body,
+    xhr: req.xhr,
+    fresh: req.fresh,
+    stale: req.stale,
+    protocol: req.protocol,
+    acceptedLanguages: req.acceptsLanguages(),
+    acceptedCharsets: req.acceptsCharsets(),
+    acceptedEncodings: req.acceptsEncodings(),
+    acceptedTypes: req.accepts(),
+  };
+
+  res.json(fullInfo);
+
+})
+
+app.use((req, res) => {
+  res.status(404).redirect('https://api.silverdium.fr/www.errors/404.html');
+});
 
 const PORT = 3000;
 http.createServer(app).listen(PORT, () => {
