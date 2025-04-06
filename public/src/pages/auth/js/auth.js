@@ -25,7 +25,7 @@ export async function verify() {
 
   const token = getCookie('silvertoken');
 
-  return await fetch(`http://localhost:8456/auth/verify`, {
+  return await fetch(`https://auth.silverdium.fr/auth/verify`, {
     headers: {
       'silvertoken': token
     },

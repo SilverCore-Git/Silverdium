@@ -132,14 +132,60 @@ app.get('/login', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup
 app.get('/register', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=register&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
 app.get('/auth', (req, res) => { res.redirect('/login') });
 app.get('/auth/callback', (req, res) => {
-  res.send(`
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id');
-      fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
-      .then( window.location.href = 'https://silverdium.fr' );
-    </script>
-    `)
+  if (req.query.dev == 1) {
+      res.send(`
+        <script>
+          const urlParams = new URLSearchParams(window.location.search);
+          const id = urlParams.get('id');
+
+          fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
+            .then(res => res.json())
+            .then(data => {
+              console.log(data);
+
+              const token = data.token;
+              if (!token) {
+                console.error("Aucun token reçu !");
+                return;
+              }
+
+              const maxAge = 3 * 24 * 3600;
+              const cookie = "silvertoken=" + encodeURIComponent(token) + "; path=/; max-age=" + maxAge + "; Secure; SameSite=Lax";
+              
+              console.log("Cookie créé :", cookie);
+              document.cookie = cookie;
+            })
+            .catch(err => {
+              console.error("Erreur lors de la récupération du token :", err);
+            });
+        </script>
+
+          `)
+  }
+res.send(`
+        <script>
+          const urlParams = new URLSearchParams(window.location.search);
+          const id = urlParams.get('id');
+
+          fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
+            .then(res => res.json())
+            .then(data => {
+
+              const token = data.token;
+
+              const maxAge = 3 * 24 * 3600;
+              const cookie = "silvertoken=" + encodeURIComponent(token) + "; path=/; max-age=" + maxAge + "; Secure; SameSite=Lax";
+              
+              document.cookie = cookie;
+
+              window.location = 'https://silverdium.fr'
+
+            })
+            .catch(err => {
+              console.error("Erreur lors de la récupération du token :", err);
+            });
+        </script>
+  `)
 })
 
 app.get('/user/profile', (req, res) => { res.redirect('https://auth.silverdium.fr/user/profile?from=https://silverdium.fr') });
