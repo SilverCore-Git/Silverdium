@@ -15,7 +15,7 @@
 // package
 const express = require('express');
 const path = require('path');
-const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const axios = require('axios');
 require('dotenv').config();
@@ -44,10 +44,10 @@ const SilverAuth_APIKEY = process.env.SAUTH_API_KEY;
 // launch express
 const app = express();
 
-// const options = {
-//   key: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/privkey.pem`, 'utf8'),
-//   cert: fs.readFileSync(`/etc/letsencrypt/live/${config.host.name}/fullchain.pem`, 'utf8'),
-// };
+const options = {
+  key: fs.readFileSync(`/etc/letsencrypt/live/${config.hostname}/privkey.pem`, 'utf8'),
+  cert: fs.readFileSync(`/etc/letsencrypt/live/${config.hostname}/fullchain.pem`, 'utf8'),
+};
 
 
 app.use((req, res, next) => {
@@ -128,22 +128,22 @@ app.get('/api/proxy', async (req, res) => {
 });
 
 // redirection des pages de auth
-app.get('/login', (req, res) => { res.redirect(`http://localhost:8456/popup/auth?action=login&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
-app.get('/register', (req, res) => { res.redirect(`http://localhost:8456/popup/auth?action=register&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
+app.get('/login', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=login&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
+app.get('/register', (req, res) => { res.redirect(`https://auth.silverdium.fr/popup/auth?action=register&redirect=https://silverdium.fr/auth/callback&key=${SilverAuth_APIKEY}`) });
 app.get('/auth', (req, res) => { res.redirect('/login') });
 app.get('/auth/callback', (req, res) => {
   res.send(`
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
-      fetch("http://localhost:8456/popup/getaccount/" + id)
+      fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
       .then( window.location.href = 'http://localhost:3000/' );
     </script>
     `)
 })
 
-app.get('/user/profile', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `profile.html`) ) });
-app.get('/user/skin', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'src', 'pages', 'user', `skin.html`) ) });
+app.get('/user/profile', (req, res) => { res.redirect('https://auth.silverdium.fr/user/profile?from=https://silverdium.fr') });
+app.get('/user/skin', (req, res) => { res.redirect('https://silverdium.fr?err=1&message=fonction non accessible') });
 
 // redirection des pages panel admin
 app.get('/admin', (req, res) => { res.redirect('https://auth.silverdium.fr/panel/admin') });
@@ -287,6 +287,6 @@ app.use((req, res) => {
 });
 
 const PORT = 3000;
-http.createServer(app).listen(PORT, () => {
+https.createServer(options, app).listen(PORT, () => {
   console.log(`HTTPS server listen on https://${config.hostname}:${PORT}`);
 }); 

@@ -45,6 +45,7 @@ export async function verify() {
 
 export function logout() {
 
+    document.cookie = "silvertoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     return fetch(`https://auth.silverdium.fr/auth/logout`)
 
 }

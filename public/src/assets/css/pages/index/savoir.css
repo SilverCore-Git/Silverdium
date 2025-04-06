@@ -6,7 +6,7 @@
 
 .quisommesnous {
     width: 110%;
-    height: 110vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center; 
@@ -36,14 +36,13 @@
 
 
   max-width: 85%;
-  /* max-height: 55rem; */
 
   background-color: white;
   box-shadow: 0 0 30px rgba(0, 0, 0, 1);
   border-radius: 15px;
 
-  margin-top: 16rem;
-  margin-bottom: 16rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   
 }
 
@@ -137,10 +136,5 @@
 @media (max-width: 900px) {
   .container {
     padding: 1rem 1.5rem 0rem 1.5rem;
-  }
-  .card {  
-    margin-top: 80rem;
-    margin-bottom: 80rem;
-    
   }
 }

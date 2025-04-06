@@ -128,4 +128,7 @@
     .launcher_img {
         display: none;
     }
+    .t::before {
+        display: none;
+    }
 }
