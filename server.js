@@ -137,7 +137,7 @@ app.get('/auth/callback', (req, res) => {
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
       fetch("https://auth.silverdium.fr/popup/getaccount/" + id)
-      .then( window.location.href = 'http://localhost:3000/' );
+      .then( window.location.href = 'https://silverdium.fr' );
     </script>
     `)
 })
@@ -271,16 +271,48 @@ app.get('/get/mydata', (req, res) => {
     xhr: req.xhr,
     fresh: req.fresh,
     stale: req.stale,
-    protocol: req.protocol,
     acceptedLanguages: req.acceptsLanguages(),
     acceptedCharsets: req.acceptsCharsets(),
     acceptedEncodings: req.acceptsEncodings(),
     acceptedTypes: req.accepts(),
   };
 
-  res.json(fullInfo);
+  res.send(`
+    <html>
+      <head>
+        <title>Infos de la requête</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
+        <style>
+          body {
+            font-family: monospace;
+            background: rgb(29, 29, 29);
+            padding: 20px;
+            color: #ccc;
+          }
+          pre {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: auto;
+          }
+          h1 {
+            color: #fff;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>🔍 Infos de la requête</h1>
+        <pre><code class="json">${JSON.stringify(fullInfo, null, 2)}</code></pre>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+      </body>
+    </html>
+  `);
+  
 
-})
+});
+
 
 app.use((req, res) => {
   res.status(404).redirect('https://api.silverdium.fr/www.errors/404.html');
