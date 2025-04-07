@@ -6,7 +6,7 @@ fetch('/assets/ranks?ext=config')
     .catch(error => console.error('Erreur lors du chargement des ranks:', error)); // Ajouter un catch pour gérer les erreurs
 
 function loadwidget(ranks) {
-    fetch('https://discord.com/api/guilds/1285091053011079189/widget.json')
+    fetch('https://corsproxy.io/https://discord.com/api/guilds/1285091053011079189/widget.json')
         .then(response => response.json())
         .then(data => {
             const membersContainer = document.getElementById('members');
