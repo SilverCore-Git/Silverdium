@@ -415,21 +415,21 @@ app.get('/get/mydata', (req, res) => {
 
 const api_launcher_key = process.env.API_LAUNCHER_KEY;
 
-app.get('/api/launcher/config', (req, res) => {
+app.get('/api/launcher/config', async (req, res) => {
   
   if (req.query.key !== api_launcher_key) { res.end(); };
 
-  const data = axios.get('https://api.silverdium.fr/dium/launcher/config.json');
-  res.json(data);
+  const data = await axios.get('https://api.silverdium.fr/dium/launcher/config.json');
+  res.json(data.data);
 
 });
 
-app.get('/api/launcher/news', (req, res) => {
+app.get('/api/launcher/news', async (req, res) => {
 
   if (req.query.key !== api_launcher_key) { res.end(); };
   
-  const data = axios.get('https://api.silverdium.fr/dium/launcher/news.json');
-  res.json(data);
+  const data = await axios.get('https://api.silverdium.fr/dium/launcher/news.json');
+  res.json(data.data);
 
 });
 
