@@ -411,12 +411,38 @@ app.get('/get/mydata', (req, res) => {
     `);
   }
 
+});
 
+const api_launcher_key = process.env.API_LAUNCHER_KEY;
+
+app.get('/api/launcher/config', (req, res) => {
   
-  
+  if (req.query.key !== api_launcher_key) { res.end(); };
+
+  const data = axios.get('https://api.silverdium.fr/dium/launcher/config.json');
+  res.json(data);
 
 });
 
+app.get('/api/launcher/news', (req, res) => {
+
+  if (req.query.key !== api_launcher_key) { res.end(); };
+  
+  const data = axios.get('https://api.silverdium.fr/dium/launcher/news.json');
+  res.json(data);
+
+});
+
+
+app.get('/api/launcher/confirm_code', (req, res) => {
+
+  if (req.query.key !== api_launcher_key) { res.end(); };
+
+  const conf_code = process.env.LAUNCHER_CONFIRM_CODE;
+
+  res.json({ code: conf_code });
+
+});
 
 app.use((req, res) => {
   res.status(404).redirect('https://api.silverdium.fr/www.errors/404.html');
