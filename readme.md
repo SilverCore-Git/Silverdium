@@ -2,6 +2,7 @@
 [Vous pouvez nous aider](https://tipeee.com/silverdium).
 
 Silverdium est un serveur minecraft, voici son github qui regroupe ses projet.
+**repo non maintenu !!**
 
 ## Table des matieres :
   - [À propos](#À-propos)
